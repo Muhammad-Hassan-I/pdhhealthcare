@@ -1,0 +1,1295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Careers | PDH Healthcare</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/FaviconPDH-02.svg" />
+  <link rel="stylesheet" href="../assets/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../assets/libs/aos-master/dist/aos.css">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+  /* ============================================================
+     PDH CAREERS PAGE — CONTENT STYLES ONLY
+     Header & Footer: 100% original, untouched
+  ============================================================ */
+  :root {
+    --navy:        #07111f;
+    --navy2:       #0d1e35;
+    --teal:        #00b4a0;
+    --teal2:       #00d4bc;
+    --teal3:       rgba(0,180,160,0.12);
+    --gold:        #e8a830;
+    --cream:       #f6f4f0;
+    --offwhite:    #fafaf8;
+    --white:       #ffffff;
+    --body:        #2c3a4a;
+    --muted:       #687787;
+    --border:      #e0e6ed;
+    --serif:       'Playfair Display', Georgia, serif;
+    --sans:        'Outfit', sans-serif;
+  }
+
+  /* ── HERO BANNER ── */
+  .pdh-hero {
+    min-height: 100vh;
+    background-image: url(../assets/images/backgrounds/blog-banner.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .pdh-hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background: linear-gradient(
+      160deg,
+      rgba(7,17,31,0.3) 0%,
+      rgba(7,17,31,0.55) 40%,
+      rgba(7,17,31,0.92) 100%
+    );
+    z-index:1;
+  }
+  /* animated scanline texture */
+  .pdh-hero::after {
+    content:'';
+    position:absolute; inset:0; z-index:2;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 4px
+    );
+    pointer-events:none;
+  }
+  .pdh-hero-inner {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+  }
+  .pdh-hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    background: rgba(0,180,160,.15);
+    border: 1px solid rgba(0,180,160,.45);
+    color: var(--teal2);
+    font-family: var(--sans);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    padding: .45rem 1.1rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(8px);
+  }
+  .pdh-hero-dot {
+    width:7px; height:7px;
+    background: var(--teal);
+    border-radius:50%;
+    animation: hpulse 1.8s infinite;
+  }
+  @keyframes hpulse {
+    0%,100%{ transform:scale(1); opacity:1; }
+    50%{ transform:scale(.6); opacity:.4; }
+  }
+  .pdh-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    letter-spacing: -.01em;
+  }
+  .pdh-hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--teal2);
+    display: block;
+  }
+  .pdh-hero-sub {
+    font-family: var(--sans);
+    font-size: 1.15rem;
+    color: rgba(255,255,255,.65);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+  .pdh-hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .pdh-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .9rem 2rem;
+    background: var(--teal);
+    color: #fff;
+    border-radius: 50px;
+    font-family: var(--sans);
+    font-size: .95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s, transform .15s, box-shadow .2s;
+  }
+  .pdh-btn-primary:hover {
+    background: var(--teal2);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0,180,160,.35);
+    color: #fff; text-decoration: none;
+  }
+  .pdh-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .9rem 2rem;
+    border: 1.5px solid rgba(255,255,255,.35);
+    color: rgba(255,255,255,.85);
+    border-radius: 50px;
+    font-family: var(--sans);
+    font-size: .95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .2s, border-color .2s;
+  }
+  .pdh-btn-ghost:hover {
+    background: rgba(255,255,255,.1);
+    border-color: rgba(255,255,255,.7);
+    color: #fff; text-decoration: none;
+  }
+  /* floating chips */
+  .hero-chips {
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+  }
+  .hero-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.14);
+    color: rgba(255,255,255,.75);
+    font-family: var(--sans);
+    font-size: .8rem;
+    padding: .38rem .9rem;
+    border-radius: 50px;
+    backdrop-filter: blur(6px);
+  }
+  .hero-chip-icon { font-size: .85rem; }
+
+  /* ── STATS MARQUEE STRIP ── */
+  .pdh-strip {
+    background: var(--teal);
+    overflow: hidden;
+    padding: .1rem 0;
+  }
+  .pdh-strip-track {
+    display: flex;
+    gap: 0;
+    animation: marquee 25s linear infinite;
+    width: max-content;
+  }
+  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .pdh-strip-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: .9rem 2.5rem;
+    white-space: nowrap;
+    font-family: var(--sans);
+    font-size: .82rem;
+    font-weight: 600;
+    color: rgba(255,255,255,.9);
+    letter-spacing: .04em;
+  }
+  .pdh-strip-item b { color: #fff; font-size: 1.05rem; }
+  .pdh-strip-sep {
+    width: 6px; height: 6px;
+    background: rgba(255,255,255,.4);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── SHARED ── */
+  .pdh-section { font-family: var(--sans); }
+  .pdh-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+  .pdh-lbl {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: .85rem;
+  }
+  .pdh-lbl::before {
+    content:'';
+    display:inline-block;
+    width:20px; height:2px;
+    background: var(--teal);
+    border-radius:2px;
+  }
+  .pdh-h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: .75rem;
+  }
+  .pdh-lead {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 580px;
+  }
+
+  /* fade animations */
+  .pdh-fade {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .pdh-fade.pdh-vis { opacity:1; transform:translateY(0); }
+
+  /* ── WHY US — BENTO GRID ── */
+  .pdh-bento { background: var(--cream); padding: 6rem 0; }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 1.25rem;
+    margin-top: 3.5rem;
+  }
+  .bento-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2.25rem 2rem;
+    border: 1.5px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s, box-shadow .3s;
+  }
+  .bento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.08);
+  }
+  .bento-1 { grid-column: 1 / 6; grid-row: 1; }
+  .bento-2 { grid-column: 6 / 13; grid-row: 1; background: var(--navy); }
+  .bento-3 { grid-column: 1 / 5; grid-row: 2; }
+  .bento-4 { grid-column: 5 / 9; grid-row: 2; background: linear-gradient(135deg, var(--teal) 0%, #009688 100%); }
+  .bento-5 { grid-column: 9 / 13; grid-row: 2; }
+
+  .bento-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .icon-teal { background: var(--teal3); }
+  .icon-white { background: rgba(255,255,255,.12); }
+  .icon-navy { background: rgba(7,17,31,.15); }
+
+  .bento-card h3 {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    color: var(--navy);
+    margin-bottom: .6rem;
+  }
+  .bento-2 h3, .bento-4 h3 { color: #fff; }
+  .bento-card p { font-size: .92rem; color: var(--muted); line-height: 1.72; }
+  .bento-2 p { color: rgba(255,255,255,.55); }
+  .bento-4 p { color: rgba(255,255,255,.8); }
+
+  .bento-big-num {
+    font-family: var(--serif);
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--teal);
+    margin-bottom: .5rem;
+  }
+  .bento-2 .bento-big-num { color: var(--teal2); }
+
+  /* decorative rings */
+  .bento-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 60px solid rgba(0,180,160,.06);
+    pointer-events: none;
+  }
+  .ring-1 { width:300px; height:300px; bottom:-120px; right:-80px; }
+  .ring-2 { width:200px; height:200px; top:-60px; left:-60px; border-color:rgba(255,255,255,.06); }
+
+  /* ── EMPLOYEE JOURNEY ── */
+  .pdh-journey { background: var(--offwhite); padding: 6rem 0; }
+
+  .journey-steps {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 0;
+    margin-top: 4rem;
+    position: relative;
+  }
+  .journey-steps::before {
+    content:'';
+    position:absolute;
+    top: 32px; left: 10%; right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--teal2));
+    z-index:0;
+  }
+  .journey-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+    position: relative;
+    z-index:1;
+  }
+  .journey-num {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--teal);
+    margin-bottom: 1.25rem;
+    box-shadow: 0 0 0 6px rgba(0,180,160,.1);
+    transition: background .2s, color .2s;
+  }
+  .journey-step:hover .journey-num {
+    background: var(--teal);
+    color: #fff;
+  }
+  .journey-step h4 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: .5rem;
+  }
+  .journey-step p { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── BENEFITS — DARK SECTION ── */
+  .pdh-benefits { background: var(--navy); padding: 6rem 0; position:relative; overflow:hidden; }
+
+  .pdh-benefits::before {
+    content:'';
+    position:absolute;
+    width:700px; height:700px;
+    background: radial-gradient(circle, rgba(0,180,160,.12) 0%, transparent 65%);
+    top:-200px; right:-150px;
+    pointer-events:none;
+  }
+
+  .benefits-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: end;
+    margin-bottom: 3.5rem;
+  }
+  .pdh-benefits .pdh-h2 { color: #fff; }
+  .pdh-benefits .pdh-lead { color: rgba(255,255,255,.5); }
+
+  .benefits-cta-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  .benefits-cta-side p {
+    font-size: .9rem;
+    color: rgba(255,255,255,.4);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .pdh-bens-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+  }
+  .pdh-ben {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 16px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    transition: background .25s, border-color .25s, transform .25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .pdh-ben::after {
+    content:'';
+    position:absolute;
+    bottom:0; left:0; right:0;
+    height:3px;
+    background: linear-gradient(90deg, var(--teal), var(--teal2));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s;
+  }
+  .pdh-ben:hover {
+    background: rgba(0,180,160,.08);
+    border-color: rgba(0,180,160,.3);
+    transform: translateY(-4px);
+  }
+  .pdh-ben:hover::after { transform: scaleX(1); }
+  .pdh-ben-icon {
+    width:46px; height:46px;
+    background: var(--teal3);
+    border-radius: 12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem;
+  }
+  .pdh-ben h4 { font-size:1rem; font-weight:600; color:#fff; }
+  .pdh-ben p  { font-size:.83rem; color:rgba(255,255,255,.48); line-height:1.65; }
+
+  /* ── TESTIMONIALS ── */
+  .pdh-voices { background: var(--cream); padding: 6rem 0; }
+
+  .voices-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+  .voice-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1.5px solid var(--border);
+    position: relative;
+    transition: transform .3s, box-shadow .3s;
+  }
+  .voice-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 48px rgba(0,0,0,.07);
+  }
+  .voice-quote {
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--teal);
+    font-family: var(--serif);
+    margin-bottom: .5rem;
+    opacity: .4;
+  }
+  .voice-text {
+    font-size: .95rem;
+    color: var(--body);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+  .voice-author {
+    display: flex;
+    align-items: center;
+    gap: .85rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.25rem;
+  }
+  .voice-avatar {
+    width:44px; height:44px;
+    border-radius:50%;
+    background: linear-gradient(135deg, var(--teal), var(--teal2));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-weight:700; font-size:.95rem;
+    flex-shrink:0;
+  }
+  .voice-name { font-weight:600; color:var(--navy); font-size:.9rem; }
+  .voice-role { font-size:.78rem; color:var(--muted); margin-top:.15rem; }
+
+  /* ── OPENINGS ── */
+  .pdh-openings { background: var(--offwhite); padding: 6rem 0; }
+
+  .openings-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2.75rem;
+  }
+  .pdh-filters { display:flex; gap:.5rem; flex-wrap:wrap; }
+  .pdh-fbtn {
+    padding:.42rem 1.1rem;
+    border-radius:50px;
+    border:1.5px solid var(--border);
+    background:transparent;
+    color:var(--muted);
+    font-size:.82rem; font-family:var(--sans); font-weight:500;
+    cursor:pointer; transition:.2s;
+  }
+  .pdh-fbtn:hover,.pdh-fbtn.on { background:var(--teal); border-color:var(--teal); color:#fff; }
+
+  .pdh-jobs { display:flex; flex-direction:column; gap:1.25rem; }
+
+  .pdh-job {
+    background:#fff;
+    border:1.5px solid var(--border);
+    border-radius:20px;
+    padding:2.25rem 2.5rem;
+    display:grid;
+    grid-template-columns: 1fr auto;
+    align-items:center;
+    gap:2rem;
+    transition: border-color .25s, box-shadow .25s, transform .25s;
+  }
+  .pdh-job:hover {
+    border-color:var(--teal);
+    box-shadow:0 10px 40px rgba(0,180,160,.1);
+    transform:translateY(-3px);
+  }
+  .pdh-job-dept {
+    display:inline-flex; align-items:center; gap:.4rem;
+    font-size:.68rem; font-weight:700; letter-spacing:.1em;
+    text-transform:uppercase;
+    padding:.3rem .85rem; border-radius:50px;
+    margin-bottom:.8rem;
+  }
+  .dept-sales  { background:rgba(0,180,160,.1); color:var(--teal); }
+  .dept-qa     { background:rgba(99,102,241,.1); color:#6366f1; }
+  .dept-hr     { background:rgba(232,168,48,.12); color:#c97d10; }
+
+  .pdh-job h4 {
+    font-family:var(--serif);
+    font-size:1.3rem;
+    color:var(--navy);
+    margin-bottom:.6rem;
+  }
+  .pdh-job-desc {
+    font-size:.9rem; color:var(--muted);
+    line-height:1.65; max-width:580px;
+    margin-bottom:1.1rem;
+  }
+  .pdh-job-tags { display:flex; flex-wrap:wrap; gap:.6rem; }
+  .pdh-job-tag {
+    display:inline-flex; align-items:center; gap:.35rem;
+    font-size:.78rem; color:var(--muted);
+    background:var(--cream); border-radius:50px;
+    padding:.28rem .8rem;
+  }
+  .pdh-job-tag svg {
+    width:12px; height:12px; stroke:var(--teal); fill:none;
+    stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round;
+  }
+  .pdh-apply {
+    display:inline-flex; align-items:center; gap:.55rem;
+    padding:.8rem 1.75rem;
+    background:var(--navy); color:#fff;
+    border-radius:50px;
+    font-family:var(--sans); font-size:.88rem; font-weight:600;
+    text-decoration:none; white-space:nowrap;
+    transition: background .2s, transform .15s;
+  }
+  .pdh-apply:hover { background:var(--teal); transform:scale(1.04); color:#fff; text-decoration:none; }
+  .pdh-apply svg {
+    width:14px; height:14px; fill:none; stroke:currentColor;
+    stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round;
+    transition:transform .2s;
+  }
+  .pdh-apply:hover svg { transform:translate(2px,-2px); }
+
+  .pdh-jobs-empty {
+    display:none;
+    text-align:center; padding:3.5rem 1rem;
+    color:var(--muted); font-family:var(--sans);
+  }
+
+  /* ── FAQ ── */
+  .pdh-faq { background: var(--white); padding: 6rem 0; }
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 3.5rem;
+  }
+  .faq-item {
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color .2s;
+  }
+  .faq-item:hover { border-color: rgba(0,180,160,.4); }
+  .faq-q {
+    width:100%; background:none; border:none; text-align:left;
+    padding:1.35rem 1.5rem;
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    cursor:pointer;
+    font-family:var(--sans); font-size:.97rem; font-weight:600; color:var(--navy);
+    transition:color .2s;
+  }
+  .faq-q:hover { color:var(--teal); }
+  .faq-icon {
+    width:28px; height:28px;
+    border-radius:50%;
+    border:1.5px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    transition:background .2s, border-color .2s, transform .3s;
+    font-size:1.1rem; color:var(--muted);
+  }
+  .faq-item.open .faq-icon {
+    background:var(--teal); border-color:var(--teal); color:#fff; transform:rotate(45deg);
+  }
+  .faq-a {
+    max-height:0; overflow:hidden;
+    transition:max-height .35s ease, padding .3s ease;
+    font-size:.9rem; color:var(--muted); line-height:1.75;
+    padding:0 1.5rem;
+  }
+  .faq-item.open .faq-a {
+    max-height:200px;
+    padding:0 1.5rem 1.35rem;
+  }
+
+  /* ── CTA ── */
+  .pdh-cta {
+    background: var(--navy);
+    padding: 7rem 0;
+    position:relative; overflow:hidden;
+    text-align:center;
+  }
+  .pdh-cta::before {
+    content:'';
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(0,180,160,.18) 0%, transparent 55%),
+      radial-gradient(circle at 80% 50%, rgba(0,100,220,.1) 0%, transparent 55%);
+  }
+  /* animated dots */
+  .cta-dots {
+    position:absolute; inset:0; z-index:0;
+    background-image: radial-gradient(circle, rgba(0,180,160,.25) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: .35;
+  }
+  .pdh-cta .pdh-container { position:relative; z-index:1; }
+  .pdh-cta h2 {
+    font-family:var(--serif);
+    font-size:clamp(2rem,4.5vw,3.2rem);
+    color:#fff; margin-bottom:1rem;
+  }
+  .pdh-cta h2 em { font-style:italic; color:var(--teal2); }
+  .pdh-cta p {
+    font-family:var(--sans);
+    font-size:1.05rem; color:rgba(255,255,255,.6);
+    max-width:480px; margin:0 auto 2.5rem; line-height:1.8;
+  }
+  .cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+  .cta-btn-fill {
+    padding:.9rem 2.2rem; background:var(--teal); color:#fff;
+    border-radius:50px; font-family:var(--sans); font-size:.95rem; font-weight:700;
+    text-decoration:none; transition:background .2s, transform .15s, box-shadow .2s;
+  }
+  .cta-btn-fill:hover {
+    background:var(--teal2); transform:translateY(-2px);
+    box-shadow:0 12px 30px rgba(0,180,160,.4); color:#fff; text-decoration:none;
+  }
+  .cta-btn-line {
+    padding:.9rem 2.2rem;
+    border:1.5px solid rgba(255,255,255,.35); color:rgba(255,255,255,.85);
+    border-radius:50px; font-family:var(--sans); font-size:.95rem; font-weight:500;
+    text-decoration:none; transition:background .2s, border-color .2s;
+  }
+  .cta-btn-line:hover {
+    background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.7);
+    color:#fff; text-decoration:none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:1024px){
+    .bento-1,.bento-2 { grid-column:span 6; }
+    .bento-3,.bento-4,.bento-5 { grid-column:span 4; }
+    .benefits-header { grid-template-columns:1fr; }
+    .benefits-cta-side { align-items:flex-start; }
+    .benefits-cta-side p { text-align:left; }
+    .faq-grid { grid-template-columns:1fr; }
+  }
+  @media(max-width:768px){
+    .pdh-hero { background-attachment:scroll; min-height:90vh; }
+    .bento-grid { grid-template-columns:1fr; }
+    .bento-1,.bento-2,.bento-3,.bento-4,.bento-5 { grid-column:span 1; }
+    .journey-steps { grid-template-columns:1fr; gap:2rem; }
+    .journey-steps::before { display:none; }
+    .pdh-bens-grid { grid-template-columns:1fr; }
+    .voices-grid { grid-template-columns:1fr; }
+    .pdh-job { grid-template-columns:1fr; gap:1.25rem; }
+    .openings-header { flex-direction:column; align-items:flex-start; }
+    .pdh-strip-track { animation-duration:15s; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     ORIGINAL HEADER — UNTOUCHED
+══════════════════════════════ -->
+<header class="header border-4 border-primary border-top position-fixed start-0 top-0 w-100">
+  <div class="container">
+    <div class="header-wrapper d-flex align-items-center justify-content-between">
+      <div class="logo">
+        <a href="index.html" class="logo-white">
+          <img src="../assets/images/logos/PDH.svg" alt="logo" class="img-fluid" style="width:100px;">
+        </a>
+        <a href="index.html" class="logo-dark">
+          <img src="../assets/images/logos/PDH.svg" alt="logo" class="img-fluid" style="width:75px;">
+        </a>
+      </div>
+      <div class="d-flex align-items-center gap-4">
+        <div class="btn-group">
+          <button class="btn btn-secondary toggle-menu round-45 p-2 d-flex align-items-center justify-content-center bg-white rounded-circle"
+            type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+            <iconify-icon icon="solar:hamburger-menu-line-duotone" class="menu-icon fs-8 text-dark"></iconify-icon>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end p-4">
+            <div class="d-flex flex-column gap-6">
+              <div class="hstack justify-content-between border-bottom pb-6">
+                <p class="mb-0 fs-5 text-dark">Menu</p>
+                <button type="button" class="btn-close opacity-75" aria-label="Close"></button>
+              </div>
+              <div class="d-flex flex-column gap-3">
+                <ul class="header-menu list-unstyled mb-0 d-flex flex-column gap-2">
+                  <li class="header-item"><a href="index.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Home</a></li>
+                  <li class="header-item"><a href="mission-vision.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Mission &amp; Vision</a></li>
+                  <li class="header-item"><a href="our-history.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Our History</a></li>
+                  <li class="header-item"><a href="Governance.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Governance</a></li>
+                  <li class="header-item"><a href="Collaborations.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Collaborations</a></li>
+                  <li class="header-item"><a href="contact.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Contact Us</a></li>
+                  <li class="header-item"><a href="Careere.html" class="header-link active hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Careers</a></li>
+                </ul>
+                <div class="d-flex flex-column gap-2">
+                  <a class="d-flex align-items-center gap-2 text-dark text-decoration-none" href="tel:+92012345678">
+                    <iconify-icon icon="solar:phone-bold" class="text-primary"></iconify-icon>
+                    <span>+92 012 345 6789</span>
+                  </a>
+                  <a class="d-flex align-items-center gap-2 fs-7 text-dark fw-bold text-decoration-none" href="mailto:info@pdhhealthcare.com">
+                    <iconify-icon icon="solar:letter-bold" class="text-primary"></iconify-icon>
+                    <span>info@pdhhealthcare.com</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════
+     PAGE WRAPPER
+══════════════════════════════ -->
+<div class="page-wrapper overflow-hidden">
+
+  <!-- ① HERO — full viewport, parallax bg -->
+  <section class="pdh-hero pdh-section"
+    style="background-image:url(../assets/images/backgrounds/blog-banner.jpg);">
+    <div class="pdh-hero-inner">
+      <div class="pdh-hero-tag">
+        <span class="pdh-hero-dot"></span>
+        Now Hiring — Join Our Team
+      </div>
+      <h1>Shape the Future<br>of <em>Healthcare.</em></h1>
+      <p class="pdh-hero-sub">At PDH Healthcare, every role carries purpose. We're building a team of driven professionals who want to make a real difference in people's lives across Pakistan and beyond.</p>
+      <div class="pdh-hero-actions">
+        <a href="#openings" class="pdh-btn-primary">
+          View Open Roles
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+        <a href="mailto:careers@pdhhealthcare.com" class="pdh-btn-ghost">Send Your CV</a>
+      </div>
+      <div class="hero-chips">
+        <span class="hero-chip"><span class="hero-chip-icon">📍</span> Lahore &amp; Karachi</span>
+        <span class="hero-chip"><span class="hero-chip-icon">🕐</span> Full-time Roles</span>
+        <span class="hero-chip"><span class="hero-chip-icon">🌍</span> International Exposure</span>
+        <span class="hero-chip"><span class="hero-chip-icon">📈</span> Growth Focused</span>
+        <span class="hero-chip"><span class="hero-chip-icon">🏥</span> Healthcare Industry</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② MARQUEE STRIP -->
+  <div class="pdh-strip">
+    <div class="pdh-strip-track">
+      <!-- duplicated for seamless loop -->
+      <span class="pdh-strip-item"><b>12+</b> Years of Excellence <span class="pdh-strip-sep"></span></span>
+      <span class="pdh-strip-item"><b>200+</b> Team Members <span class="pdh-strip-sep"></span></span>
+      <span class="pdh-strip-item"><b>15+</b> Cities Nationwide <span class="pdh-strip-sep"></span></span>
+      <span class="pdh-strip-item"><b>98%</b> Employee Satisfaction <span class="pdh-strip-sep"></span></span>
+      <span class="pdh-strip-item"><b>50+</b> Healthcare Partners <span class="pdh-strip-sep"></span></span>
+      <span class="pdh-strip-item"><b>2</b> Open Positions <span class="pdh-strip-sep"></span></span>
+      <span class="pdh-strip-item"><b>12+</b> Years of Excellence <span class="pdh-strip-sep"></span></span>
+      <span class="pdh-strip-item"><b>200+</b> Team Members <span class="pdh-strip-sep"></span></span>
+      <span class="pdh-strip-item"><b>15+</b> Cities Nationwide <span class="pdh-strip-sep"></span></span>
+      <span class="pdh-strip-item"><b>98%</b> Employee Satisfaction <span class="pdh-strip-sep"></span></span>
+      <span class="pdh-strip-item"><b>50+</b> Healthcare Partners <span class="pdh-strip-sep"></span></span>
+      <span class="pdh-strip-item"><b>2</b> Open Positions <span class="pdh-strip-sep"></span></span>
+    </div>
+  </div>
+
+  <!-- ③ WHY JOIN — BENTO GRID -->
+  <section class="pdh-bento pdh-section">
+    <div class="pdh-container">
+      <div class="pdh-fade">
+        <span class="pdh-lbl">Why PDH Healthcare</span>
+        <h2 class="pdh-h2">More than a job.<br>A meaningful career.</h2>
+        <p class="pdh-lead">We're committed to building an environment where talented people do the best work of their lives — and feel proud of the impact they create.</p>
+      </div>
+      <div class="bento-grid">
+        <div class="bento-card bento-1 pdh-fade" style="transition-delay:.1s">
+          <div class="bento-ring ring-1"></div>
+          <div class="bento-icon icon-teal">🌍</div>
+          <div class="bento-big-num">15+</div>
+          <h3>Cities of Impact</h3>
+          <p>Our network spans 15+ cities across Pakistan, giving you the opportunity to work in diverse markets and communities with real healthcare needs.</p>
+        </div>
+        <div class="bento-card bento-2 pdh-fade" style="transition-delay:.15s">
+          <div class="bento-ring ring-2"></div>
+          <div class="bento-icon icon-white">🤝</div>
+          <div class="bento-big-num" style="color:var(--teal2)">200+</div>
+          <h3>Team Members</h3>
+          <p>Join a diverse, passionate team of over 200 professionals united by one mission — advancing healthcare across Pakistan.</p>
+        </div>
+        <div class="bento-card bento-3 pdh-fade" style="transition-delay:.2s">
+          <div class="bento-icon icon-teal">📈</div>
+          <h3>Career Advancement</h3>
+          <p>Structured growth paths, mentorship programmes, and leadership development ensure your career never plateaus at PDH.</p>
+        </div>
+        <div class="bento-card bento-4 pdh-fade" style="transition-delay:.25s">
+          <div class="bento-icon icon-navy">🏆</div>
+          <h3>Award-Winning Culture</h3>
+          <p>Recognised for workplace excellence — we celebrate achievements, reward performance, and build each other up every day.</p>
+        </div>
+        <div class="bento-card bento-5 pdh-fade" style="transition-delay:.3s">
+          <div class="bento-icon icon-teal">🔬</div>
+          <h3>Innovation First</h3>
+          <p>From new product lines to process improvements, we empower every employee to think creatively and drive change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ EMPLOYEE JOURNEY -->
+  <section class="pdh-journey pdh-section">
+    <div class="pdh-container">
+      <div class="pdh-fade" style="text-align:center;">
+        <span class="pdh-lbl" style="justify-content:center;">Your Journey With Us</span>
+        <h2 class="pdh-h2" style="text-align:center; max-width:100%;">From Application to Impact</h2>
+        <p class="pdh-lead" style="margin:0 auto; text-align:center;">A simple, transparent hiring process designed around you.</p>
+      </div>
+      <div class="journey-steps">
+        <div class="journey-step pdh-fade" style="transition-delay:.1s">
+          <div class="journey-num">01</div>
+          <h4>Apply Online</h4>
+          <p>Submit your CV via email or through our careers page. Takes less than 5 minutes.</p>
+        </div>
+        <div class="journey-step pdh-fade" style="transition-delay:.2s">
+          <div class="journey-num">02</div>
+          <h4>Initial Review</h4>
+          <p>Our HR team reviews your application within 48 hours and reaches out personally.</p>
+        </div>
+        <div class="journey-step pdh-fade" style="transition-delay:.3s">
+          <div class="journey-num">03</div>
+          <h4>Interview</h4>
+          <p>A two-step interview process — a phone screen, then an in-person or video meeting.</p>
+        </div>
+        <div class="journey-step pdh-fade" style="transition-delay:.4s">
+          <div class="journey-num">04</div>
+          <h4>Offer</h4>
+          <p>Receive a competitive offer with full benefits breakdown and start date flexibility.</p>
+        </div>
+        <div class="journey-step pdh-fade" style="transition-delay:.5s">
+          <div class="journey-num">05</div>
+          <h4>Welcome!</h4>
+          <p>Structured onboarding, mentorship assignment, and a warm team welcome from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ BENEFITS — DARK -->
+  <section class="pdh-benefits pdh-section">
+    <div class="pdh-container">
+      <div class="benefits-header pdh-fade">
+        <div>
+          <span class="pdh-lbl" style="color:var(--teal2)">Employee Benefits</span>
+          <h2 class="pdh-h2">Everything you need<br>to thrive.</h2>
+          <p class="pdh-lead">We invest in your wellbeing so you can bring your best self to work every single day.</p>
+        </div>
+        <div class="benefits-cta-side">
+          <p>Questions about our benefits? Reach out and we'll be happy to walk you through everything.</p>
+          <a href="mailto:hr@pdhhealthcare.com" class="pdh-btn-primary">Talk to HR</a>
+        </div>
+      </div>
+      <div class="pdh-bens-grid">
+        <div class="pdh-ben pdh-fade" style="transition-delay:.05s">
+          <div class="pdh-ben-icon">🏥</div>
+          <h4>Health &amp; Medical</h4>
+          <p>Comprehensive medical coverage for you and your family, including specialist care and pharmacy benefits.</p>
+        </div>
+        <div class="pdh-ben pdh-fade" style="transition-delay:.1s">
+          <div class="pdh-ben-icon">📚</div>
+          <h4>Learning &amp; Development</h4>
+          <p>Annual training allowance, industry certifications, and monthly internal workshops to sharpen your skills.</p>
+        </div>
+        <div class="pdh-ben pdh-fade" style="transition-delay:.15s">
+          <div class="pdh-ben-icon">⏱️</div>
+          <h4>Flexible Hours</h4>
+          <p>We trust you to manage your time. Flexible arrangements that respect your personal commitments.</p>
+        </div>
+        <div class="pdh-ben pdh-fade" style="transition-delay:.2s">
+          <div class="pdh-ben-icon">🎯</div>
+          <h4>Performance Bonuses</h4>
+          <p>Transparent, merit-based incentives and quarterly bonuses tied to real results — not just seniority.</p>
+        </div>
+        <div class="pdh-ben pdh-fade" style="transition-delay:.25s">
+          <div class="pdh-ben-icon">🌱</div>
+          <h4>Mentorship Programme</h4>
+          <p>Get paired with senior leaders who are invested in your success and long-term career growth.</p>
+        </div>
+        <div class="pdh-ben pdh-fade" style="transition-delay:.3s">
+          <div class="pdh-ben-icon">✈️</div>
+          <h4>Paid Leave &amp; Travel</h4>
+          <p>Generous annual leave, public holidays, and travel allowances for field-based roles across Pakistan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥ EMPLOYEE VOICES -->
+  <section class="pdh-voices pdh-section">
+    <div class="pdh-container">
+      <div class="pdh-fade" style="text-align:center;">
+        <span class="pdh-lbl" style="justify-content:center;">Our People Say</span>
+        <h2 class="pdh-h2" style="max-width:100%; text-align:center;">Hear from the Team</h2>
+        <p class="pdh-lead" style="margin:0 auto; text-align:center;">Real words from the people who make PDH Healthcare what it is.</p>
+      </div>
+      <div class="voices-grid">
+        <div class="voice-card pdh-fade" style="transition-delay:.1s">
+          <div class="voice-quote">"</div>
+          <p class="voice-text">Joining PDH was the best career decision I've made. The mentorship I've received here accelerated my growth by years — I was promoted within 18 months.</p>
+          <div class="voice-author">
+            <div class="voice-avatar">AK</div>
+            <div>
+              <div class="voice-name">Ahmed Khan</div>
+              <div class="voice-role">Senior Sales Representative, Lahore</div>
+            </div>
+          </div>
+        </div>
+        <div class="voice-card pdh-fade" style="transition-delay:.2s">
+          <div class="voice-quote">"</div>
+          <p class="voice-text">The culture here is genuinely collaborative. Everyone from the CEO to the newest hire works together toward the same goal. It's rare and it's real.</p>
+          <div class="voice-author">
+            <div class="voice-avatar">SF</div>
+            <div>
+              <div class="voice-name">Sara Farooq</div>
+              <div class="voice-role">Quality Assurance Officer, Karachi</div>
+            </div>
+          </div>
+        </div>
+        <div class="voice-card pdh-fade" style="transition-delay:.3s">
+          <div class="voice-quote">"</div>
+          <p class="voice-text">PDH gave me exposure to international healthcare standards that no other employer in Pakistan could have. My career has a global dimension now that I'm truly proud of.</p>
+          <div class="voice-author">
+            <div class="voice-avatar">BM</div>
+            <div>
+              <div class="voice-name">Bilal Mahmood</div>
+              <div class="voice-role">Product Manager, Islamabad</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦ CURRENT OPENINGS -->
+  <section class="pdh-openings pdh-section" id="openings">
+    <div class="pdh-container">
+      <div class="openings-header pdh-fade">
+        <div>
+          <span class="pdh-lbl">Join the Team</span>
+          <h2 class="pdh-h2">Current Openings</h2>
+        </div>
+        <div class="pdh-filters">
+          <button class="pdh-fbtn on" onclick="pdhFilter('all',this)">All Roles</button>
+          <button class="pdh-fbtn" onclick="pdhFilter('sales',this)">Sales</button>
+          <button class="pdh-fbtn" onclick="pdhFilter('qa',this)">Quality</button>
+        </div>
+      </div>
+
+      <div class="pdh-jobs" id="pdhJobList">
+
+        <div class="pdh-job pdh-fade" data-dept="sales" style="transition-delay:.1s">
+          <div>
+            <span class="pdh-job-dept dept-sales">● Sales &amp; Marketing</span>
+            <h4>Medical Sales Representative</h4>
+            <p class="pdh-job-desc">Drive growth by promoting our innovative healthcare portfolio to medical professionals, building lasting client relationships, and consistently exceeding targets. You'll be the face of PDH in your territory.</p>
+            <div class="pdh-job-tags">
+              <span class="pdh-job-tag">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                Lahore, Pakistan
+              </span>
+              <span class="pdh-job-tag">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Full-time
+              </span>
+              <span class="pdh-job-tag">
+                <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                2+ Years Experience
+              </span>
+              <span class="pdh-job-tag">
+                <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                Posted 3 days ago
+              </span>
+            </div>
+          </div>
+          <a href="mailto:careers@pdhhealthcare.com?subject=Application: Medical Sales Representative" class="pdh-apply">
+            Apply Now
+            <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <div class="pdh-job pdh-fade" data-dept="qa" style="transition-delay:.2s">
+          <div>
+            <span class="pdh-job-dept dept-qa">● Quality &amp; Compliance</span>
+            <h4>Quality Assurance Officer</h4>
+            <p class="pdh-job-desc">Uphold and advance our quality standards by ensuring compliance with healthcare regulations, conducting internal audits, and championing continuous improvement initiatives across all departments.</p>
+            <div class="pdh-job-tags">
+              <span class="pdh-job-tag">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                Karachi, Pakistan
+              </span>
+              <span class="pdh-job-tag">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Full-time
+              </span>
+              <span class="pdh-job-tag">
+                <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                3+ Years Experience
+              </span>
+              <span class="pdh-job-tag">
+                <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                Posted 1 week ago
+              </span>
+            </div>
+          </div>
+          <a href="mailto:careers@pdhhealthcare.com?subject=Application: Quality Assurance Officer" class="pdh-apply">
+            Apply Now
+            <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pdh-jobs-empty" id="pdhEmpty">
+        <div style="font-size:2.5rem;margin-bottom:.75rem">🔍</div>
+        <p>No openings in this category right now. Check back soon!</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ⑧ FAQ -->
+  <section class="pdh-faq pdh-section">
+    <div class="pdh-container">
+      <div class="pdh-fade" style="text-align:center; margin-bottom:.5rem;">
+        <span class="pdh-lbl" style="justify-content:center;">Got Questions?</span>
+        <h2 class="pdh-h2" style="max-width:100%; text-align:center;">Frequently Asked</h2>
+        <p class="pdh-lead" style="margin:0 auto 3.5rem; text-align:center;">Everything you need to know before you apply.</p>
+      </div>
+      <div class="faq-grid pdh-fade" style="transition-delay:.1s">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            How long does the hiring process take?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">From application to offer, our process typically takes 1–2 weeks. We respect your time and keep you updated at every step with no ghosting — guaranteed.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Do you offer remote or hybrid working?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Certain roles offer hybrid flexibility. Sales-based roles require field presence, while office-based roles may offer hybrid arrangements depending on department policy and manager approval.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What does onboarding look like at PDH?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">New hires go through a structured 30-day onboarding programme that includes product training, team introductions, a mentor assignment, and shadowing sessions with senior team members.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Can I apply if I don't see a matching role?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Absolutely! We welcome open applications. Send your CV to careers@pdhhealthcare.com with a short note about your interests, and we'll keep you in mind for future opportunities.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Are there opportunities for promotion?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Yes — we have a formal annual performance review cycle with clear promotion criteria. Most of our senior staff were promoted from within. We believe in growing talent internally first.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What should I include in my CV?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">A clean 1–2 page CV with your experience, education, and key achievements is perfect. A short cover email telling us why you're excited about PDH goes a long way too!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑨ CTA -->
+  <section class="pdh-cta pdh-section">
+    <div class="cta-dots"></div>
+    <div class="pdh-container">
+      <h2>Ready to make an <em>impact?</em></h2>
+      <p>Join a team that's changing healthcare in Pakistan — one patient, one partnership, one innovation at a time.</p>
+      <div class="cta-btns">
+        <a href="#openings" class="cta-btn-fill">Browse Open Roles</a>
+        <a href="mailto:careers@pdhhealthcare.com" class="cta-btn-line">Send Open Application</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /.page-wrapper -->
+
+
+<!-- ══════════════════════════════
+     ORIGINAL FOOTER — UNTOUCHED
+══════════════════════════════ -->
+<footer class="footer bg-dark py-5 py-lg-11 py-xl-12">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-5 mb-8 mb-xl-0">
+        <div class="d-flex flex-column gap-8 pe-xl-5">
+          <h2 class="mb-0 text-white">Build something together?</h2>
+          <div class="d-flex flex-column gap-2">
+            <a href="https://www.pdhhealthcare.com/" target="_blank" class="link-hover hstack gap-3 text-white fs-5">
+              <iconify-icon icon="lucide:arrow-up-right" class="fs-7 text-primary"></iconify-icon>
+              info@pdhhealthcare.com
+            </a>
+            <a href="https://maps.app.goo.gl/hpDp81fqzGt5y4bC8" target="_blank" class="link-hover hstack gap-3 text-white fs-5">
+              <iconify-icon icon="lucide:map-pin" class="fs-7 text-primary"></iconify-icon>
+              Head Office: 57-D ModelTown Lahore, Pakistan
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
+        <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
+          <li><a class="link-hover fs-5 text-white" href="index.html">Home</a></li>
+          <li><a class="link-hover fs-5 text-white" href="about-us.html">About</a></li>
+          <li><a class="link-hover fs-5 text-white" href="terms-and-conditions.html">Terms</a></li>
+          <li><a class="link-hover fs-5 text-white" href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
+        <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
+          <li><a class="link-hover fs-5 text-white" href="#!">Facebook</a></li>
+          <li><a class="link-hover fs-5 text-white" href="#!">Instagram</a></li>
+          <li><a class="link-hover fs-5 text-white" href="#!">Twitter</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 col-xl-3 mb-8 mb-xl-0">
+        <p class="mb-0 text-white text-opacity-70 text-md-end">© PDH Healthcare copyright 2025</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="get-template hstack gap-2">
+  <button class="btn bg-primary p-2 round-52 rounded-circle hstack justify-content-center flex-shrink-0" id="scrollToTopBtn">
+    <iconify-icon icon="lucide:arrow-up" class="fs-7 text-dark"></iconify-icon>
+  </button>
+</div>
+
+<!-- ORIGINAL SCRIPTS -->
+<script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+<script src="../assets/libs/aos-master/dist/aos.js"></script>
+<script src="../assets/js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
+<!-- CAREERS PAGE JS -->
+<script>
+  // Scroll fade-up
+  const pdhObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('pdh-vis'); pdhObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.pdh-fade').forEach(el => pdhObs.observe(el));
+
+  // Job filter
+  function pdhFilter(dept, btn) {
+    document.querySelectorAll('.pdh-fbtn').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    const cards = document.querySelectorAll('.pdh-job');
+    let vis = 0;
+    cards.forEach(c => {
+      const show = dept === 'all' || c.dataset.dept === dept;
+      c.style.display = show ? '' : 'none';
+      if (show) vis++;
+    });
+    document.getElementById('pdhEmpty').style.display = vis === 0 ? 'block' : 'none';
+  }
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

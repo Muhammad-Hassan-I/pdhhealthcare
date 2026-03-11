@@ -1,0 +1,1151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDH Healthcare</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/FaviconPDH-02.svg" />
+  <link rel="stylesheet" href="../assets/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../assets/libs/aos-master/dist/aos.css">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ═══════════════════════════════════════
+       PDH BRAND COLORS
+    ═══════════════════════════════════════ */
+    :root {
+      --orange:  #f05a24;
+      --orange2: #ff7340;
+      --green:   #00a44f;
+      --green2:  #00a550;
+      --blue:    #28aae1;
+      --blue2:   #28aae0;
+
+      --navy:      #0a1628;
+      --dark:      #0d1f10;
+      --cream:     #f5faf7;
+      --light:     #f0faf4;
+      --gray-light:#f2f6f3;
+      --gray-mid:  #7a8f82;
+      --white:     #ffffff;
+    }
+
+    section { padding: 96px 0; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--green); margin-bottom: 16px;
+    }
+    .section-label::before {
+      content: ''; width: 28px; height: 2px;
+      background: linear-gradient(90deg, var(--orange), var(--green));
+    }
+
+    .section-heading {
+      font-size: clamp(30px,4vw,50px);
+      font-weight: 700; line-height: 1.15; color: var(--navy);
+    }
+    .section-heading em { font-style: italic; color: var(--green); }
+
+    .section-body { font-size: 15px; line-height: 1.85; color: #4a6a55; max-width: 580px; }
+
+    /* ═══════════════════════════════════════
+       STATS BAR — right below banner (NEW)
+    ═══════════════════════════════════════ */
+    .home-stats-bar { background: var(--dark); position: relative; overflow: hidden; }
+
+    .home-stats-bar::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--green), var(--blue));
+    }
+    .home-stats-bar::after {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 15% 50%, rgba(0,164,79,.12) 0%,transparent 55%),
+        radial-gradient(ellipse at 85% 50%, rgba(40,170,225,.10) 0%,transparent 55%);
+    }
+
+    .hstats-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      position: relative; z-index: 1;
+    }
+
+    .hstat-box {
+      padding: 2.4rem 1.5rem; text-align: center;
+      border-right: 1px solid rgba(255,255,255,.05);
+      position: relative; transition: background .3s;
+    }
+    .hstat-box:last-child { border-right: none; }
+    .hstat-box:hover { background: rgba(255,255,255,.03); }
+
+    .hstat-box::after {
+      content: ''; position: absolute; bottom: 0; left: 50%;
+      transform: translateX(-50%); width: 0; height: 2px;
+      transition: width .4s ease;
+    }
+    .hstat-box:nth-child(1)::after { background: var(--orange); }
+    .hstat-box:nth-child(2)::after { background: var(--green); }
+    .hstat-box:nth-child(3)::after { background: var(--blue); }
+    .hstat-box:nth-child(4)::after { background: var(--green2); }
+    .hstat-box:hover::after { width: 60%; }
+
+    .hstat-num {
+      font-size: clamp(2rem,3vw,2.8rem);
+      font-weight: 800; line-height: 1;
+      margin-bottom: .4rem; letter-spacing: -.03em;
+    }
+    .hstat-box:nth-child(1) .hstat-num { color: var(--orange); }
+    .hstat-box:nth-child(2) .hstat-num { color: var(--green); }
+    .hstat-box:nth-child(3) .hstat-num { color: var(--blue); }
+    .hstat-box:nth-child(4) .hstat-num { color: var(--green2); }
+
+    .hstat-lbl {
+      font-size: .68rem; letter-spacing: .2em;
+      text-transform: uppercase; color: rgba(255,255,255,.4);
+      font-weight: 500;
+    }
+
+    /* ═══════════════════════════════════════
+       STORY / ABOUT
+    ═══════════════════════════════════════ */
+    .story-section { background: var(--dark); overflow: hidden; position: relative; }
+
+    .story-pattern {
+      position: absolute; inset: 0; opacity: .04;
+      background-image: radial-gradient(circle at 1px 1px,rgba(0,164,79,.9) 1px,transparent 0);
+      background-size: 32px 32px;
+    }
+    .story-section::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--green), var(--blue));
+    }
+
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center; position: relative; z-index: 1;
+    }
+
+    .story-section .section-label { color: var(--orange); }
+    .story-section .section-label::before { background: linear-gradient(90deg,var(--orange),var(--orange2)); }
+    .story-section .section-heading { color: white; }
+    .story-section .section-heading em { color: var(--green); }
+    .story-section .section-body { color: rgba(255,255,255,.58); max-width: 100%; }
+
+    .story-visual {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px; padding: 36px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+
+    .story-badge {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px; border-radius: 8px;
+      border-left: 3px solid var(--green); transition: background .3s;
+    }
+    .story-badge:nth-child(1) { background: rgba(240,90,36,.08);  border-color: var(--orange); }
+    .story-badge:nth-child(2) { background: rgba(0,164,79,.08);   border-color: var(--green); }
+    .story-badge:nth-child(3) { background: rgba(40,170,225,.08); border-color: var(--blue); }
+    .story-badge:nth-child(4) { background: rgba(0,165,80,.08);   border-color: var(--green2); }
+    .story-badge:hover { background: rgba(255,255,255,.06); }
+
+    .story-badge iconify-icon { font-size: 24px; flex-shrink: 0; }
+    .story-badge:nth-child(1) iconify-icon { color: var(--orange); }
+    .story-badge:nth-child(2) iconify-icon { color: var(--green); }
+    .story-badge:nth-child(3) iconify-icon { color: var(--blue); }
+    .story-badge:nth-child(4) iconify-icon { color: var(--green2); }
+
+    .story-badge-text strong { display: block; font-size: 14px; font-weight: 600; color: white; }
+    .story-badge-text span   { font-size: 12px; color: rgba(255,255,255,.45); }
+
+    /* ═══════════════════════════════════════
+       HISTORY / TIMELINE
+    ═══════════════════════════════════════ */
+    .history-section { background: var(--white); }
+
+    .history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .history-left { position: sticky; top: 96px; }
+
+    .history-since {
+      font-size: 120px; font-weight: 800; color: var(--green);
+      opacity: .06; line-height: 1;
+      position: absolute; top: -20px; left: -16px;
+      z-index: 0; pointer-events: none; letter-spacing: -.05em;
+    }
+    .history-content-box { position: relative; z-index: 1; }
+
+    .history-pills { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem; }
+    .history-pill {
+      padding: .3rem .9rem; border-radius: 20px;
+      font-size: .72rem; font-weight: 700;
+    }
+    .history-pill.orange { background: rgba(240,90,36,.1); color: var(--orange); }
+    .history-pill.green  { background: rgba(0,164,79,.1);  color: var(--green); }
+    .history-pill.blue   { background: rgba(40,170,225,.1);color: var(--blue); }
+
+    .timeline { position: relative; margin-top: 40px; }
+
+    .timeline::before {
+      content: ''; position: absolute; left: 20px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom,var(--orange),var(--green),var(--blue),var(--green2));
+      opacity: .35;
+    }
+
+    .tl-item {
+      display: flex; gap: 32px; margin-bottom: 48px;
+      padding-left: 60px; position: relative;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .5s ease,transform .5s ease;
+    }
+    .tl-item.visible { opacity: 1; transform: translateY(0); }
+
+    .tl-dot {
+      position: absolute; left: 8px; top: 6px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--white); border: 2px solid var(--green);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; z-index: 1;
+    }
+    .tl-dot::after { content: ''; width: 8px; height: 8px; background: var(--green); border-radius: 50%; }
+
+    .tl-item:nth-child(2n)  .tl-dot { border-color: var(--orange); }
+    .tl-item:nth-child(2n)  .tl-dot::after { background: var(--orange); }
+    .tl-item:nth-child(3n)  .tl-dot { border-color: var(--blue); }
+    .tl-item:nth-child(3n)  .tl-dot::after { background: var(--blue); }
+
+    .tl-year { font-size: 36px; font-weight: 800; color: var(--navy); line-height: 1; min-width: 80px; flex-shrink: 0; }
+    .tl-text { flex: 1; }
+    .tl-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .tl-text p { font-size: 13px; color: #5a7060; line-height: 1.75; }
+
+    .tl-milestone {
+      display: inline-block; margin-bottom: 8px;
+      font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 20px;
+    }
+    .tl-item:nth-child(1) .tl-milestone { background: rgba(240,90,36,.1); color: var(--orange); }
+    .tl-item:nth-child(2) .tl-milestone { background: rgba(0,164,79,.1);  color: var(--green); }
+    .tl-item:nth-child(3) .tl-milestone { background: rgba(40,170,225,.1);color: var(--blue); }
+    .tl-item:nth-child(4) .tl-milestone { background: rgba(240,90,36,.1); color: var(--orange); }
+    .tl-item:nth-child(5) .tl-milestone { background: rgba(0,165,80,.1);  color: var(--green2); }
+    .tl-item:nth-child(6) .tl-milestone { background: rgba(0,164,79,.1);  color: var(--green); }
+
+    /* ═══════════════════════════════════════
+       CEO / LEADERSHIP
+       ★ IMAGE AREA: FIXED HEIGHT, object-fit
+    ═══════════════════════════════════════ */
+    .ceo-section { background: var(--light); position: relative; overflow: hidden; }
+
+    .ceo-section::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg,var(--orange),var(--green),var(--blue));
+    }
+
+    .ceo-grid { display: grid; grid-template-columns: 1fr 1.55fr; gap: 80px; align-items: center; }
+
+    .ceo-card {
+      background: var(--white); border-radius: 16px; overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,164,79,.10);
+      border: 1px solid rgba(0,164,79,.08);
+    }
+
+    .ceo-card-top { position: relative; background: linear-gradient(160deg,var(--dark) 0%,#0b3020 100%); overflow: hidden; }
+
+    .ceo-card-top::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg,var(--orange),var(--green),var(--blue)); z-index: 3;
+    }
+
+    /* ── FIXED IMAGE AREA ── */
+    .ceo-img-area {
+      width: 100%;
+      height: 300px;               /* fixed height */
+      overflow: hidden;
+      position: relative;
+    }
+    .ceo-img-area img {
+      width: 100%; height: 100%;
+      object-fit: cover;           /* always fills */
+      object-position: top center; /* show face */
+      display: block;
+      transition: transform .5s ease;
+    }
+    .ceo-card:hover .ceo-img-area img { transform: scale(1.04); }
+
+    /* gradient overlay at bottom of image */
+    .ceo-img-area::after {
+      content: ''; pointer-events: none;
+      position: absolute; bottom: 0; left: 0; right: 0; height: 55%;
+      background: linear-gradient(to top,rgba(13,31,16,.92) 0%,transparent 100%);
+    }
+
+    .ceo-img-meta { position: absolute; bottom: 1.2rem; left: 1.4rem; right: 1.4rem; z-index: 2; }
+    .ceo-img-meta .name-line { font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: .35rem; }
+    .ceo-role-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--orange); color: white;
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; padding: .25rem .85rem; border-radius: 20px;
+    }
+
+    .ceo-card-body { padding: 1.6rem 1.8rem 1.5rem; }
+
+    .ceo-fact {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0; border-bottom: 1px solid rgba(0,164,79,.07);
+      font-size: 13px; color: #4a6055;
+    }
+    .ceo-fact:last-child { border-bottom: none; }
+    .ceo-fact:nth-child(1) iconify-icon { color: var(--orange); }
+    .ceo-fact:nth-child(2) iconify-icon { color: var(--green); }
+    .ceo-fact:nth-child(3) iconify-icon { color: var(--blue); }
+    .ceo-fact:nth-child(4) iconify-icon { color: var(--green2); }
+    .ceo-fact iconify-icon { font-size: 16px; flex-shrink: 0; }
+
+    .ceo-section .section-label { color: var(--orange); }
+    .ceo-section .section-label::before { background: linear-gradient(90deg,var(--orange),var(--orange2)); }
+    .ceo-section .section-heading em { color: var(--orange); }
+
+    .ceo-stats-row {
+      display: flex; gap: 28px; margin-top: 40px;
+      padding-top: 32px; border-top: 1px solid rgba(0,164,79,.1); flex-wrap: wrap;
+    }
+    .ceo-stat-num {
+      font-size: 40px; font-weight: 800; color: var(--navy);
+      line-height: 1; letter-spacing: -.03em;
+    }
+    .ceo-stat-num span { font-size: 20px; color: var(--green); }
+    .ceo-stat-lbl { font-size: 11px; color: var(--gray-mid); text-transform: uppercase; letter-spacing: .8px; margin-top: 4px; }
+
+    /* ═══════════════════════════════════════
+       NEWS
+       ★ IMAGE AREA: FIXED HEIGHT, object-fit
+    ═══════════════════════════════════════ */
+    .news-section { background: var(--white); }
+    .news-section .section-label { color: var(--green); }
+    .news-section .section-label::before { background: linear-gradient(90deg,var(--green),var(--blue)); }
+    .news-section .section-heading em { color: var(--orange); }
+
+    .news-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 56px; }
+
+    .news-card {
+      border: 1px solid rgba(0,164,79,.09); border-radius: 12px; overflow: hidden;
+      transition: transform .3s ease,box-shadow .3s ease;
+      background: var(--white); position: relative;
+    }
+    .news-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; z-index: 2;
+    }
+    .news-card:nth-child(1)::before { background: var(--orange); }
+    .news-card:nth-child(2)::before { background: var(--green); }
+    .news-card:nth-child(3)::before { background: var(--blue); }
+    .news-card:nth-child(4)::before { background: var(--orange2); }
+    .news-card:nth-child(5)::before { background: var(--green2); }
+
+    .news-card:hover { transform: translateY(-6px); box-shadow: 0 16px 50px rgba(0,164,79,.12); }
+
+    /* ── FIXED IMAGE AREA ── */
+    .news-img {
+      height: 220px;               /* fixed height */
+      overflow: hidden; position: relative;
+    }
+    .news-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;           /* always fills */
+      display: block;
+      transition: transform .45s ease;
+    }
+    .news-card:hover .news-img img { transform: scale(1.06); }
+
+    .news-body { padding: 22px; }
+    .news-date { font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; }
+    .news-card:nth-child(1) .news-date { color: var(--orange); }
+    .news-card:nth-child(2) .news-date { color: var(--green); }
+    .news-card:nth-child(3) .news-date { color: var(--blue); }
+    .news-card:nth-child(4) .news-date { color: var(--orange2); }
+    .news-card:nth-child(5) .news-date { color: var(--green2); }
+
+    .news-title  { font-size: 18px; font-weight: 700; color: var(--navy); line-height: 1.35; margin-bottom: 10px; }
+    .news-excerpt{ font-size: 13px; color: #5a7060; line-height: 1.75; margin-bottom: 18px; }
+
+    .news-link {
+      font-size: 12px; font-weight: 700; text-decoration: none;
+      letter-spacing: .5px; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding-bottom: 2px; border-bottom: 2px solid transparent;
+      transition: border-color .25s;
+    }
+    .news-card:nth-child(odd)  .news-link { color: var(--green); }
+    .news-card:nth-child(even) .news-link { color: var(--blue); }
+    .news-link:hover { border-bottom-color: currentColor; }
+
+    .news-more-btn { display: flex; align-items: center; justify-content: center; margin-top: 40px; }
+
+    .btn-outline {
+      padding: 13px 36px; border: 2px solid var(--green); color: var(--green);
+      font-size: 13px; font-weight: 700; letter-spacing: 1px;
+      border-radius: 8px; background: none; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all .25s ease; text-transform: uppercase;
+    }
+    .btn-outline:hover { background: var(--green); color: white; }
+
+    .news-hidden { display: none; }
+
+    /* ═══════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════ */
+    .contact-section { background: var(--cream); position: relative; overflow: hidden; }
+    .contact-section::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg,var(--orange),var(--green),var(--blue));
+    }
+    .contact-section .section-label { color: var(--blue); }
+    .contact-section .section-label::before { background: linear-gradient(90deg,var(--blue),var(--blue2)); }
+    .contact-section .section-heading em { color: var(--green); }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
+    .contact-info { display: flex; flex-direction: column; gap: 28px; }
+    .contact-item { display: flex; gap: 16px; align-items: flex-start; }
+
+    .contact-icon { width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-item:nth-child(2) .contact-icon { background: var(--orange); }
+    .contact-item:nth-child(3) .contact-icon { background: var(--green); }
+    .contact-item:nth-child(4) .contact-icon { background: var(--blue); }
+    .contact-icon iconify-icon { color: white; font-size: 18px; }
+
+    .contact-item-text strong { display: block; font-size: 11px; font-weight: 700; color: var(--navy); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .5px; }
+    .contact-item-text span   { font-size: 14px; color: #4a6a55; }
+
+    .contact-callout {
+      padding: 24px; background: var(--dark); border-radius: 10px;
+      border-left: 3px solid var(--orange); position: relative; overflow: hidden;
+    }
+    .contact-callout::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 50%,rgba(0,164,79,.1) 0%,transparent 60%); }
+    .contact-callout p { font-size: 19px; color: white; line-height: 1.5; position: relative; z-index: 1; }
+    .contact-callout p em { color: var(--green); font-style: italic; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-field { display: flex; flex-direction: column; gap: 8px; }
+    .form-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gray-mid); }
+
+    .form-input, .form-textarea {
+      width: 100%; padding: 14px 16px;
+      border: 1px solid rgba(0,164,79,.18); border-radius: 6px;
+      font-size: 14px; color: var(--navy); background: white;
+      transition: border-color .25s,box-shadow .25s; outline: none; resize: none;
+    }
+    .form-input:focus, .form-textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(0,164,79,.08); }
+    .form-textarea { height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .btn-submit {
+      width: 100%; padding: 16px;
+      background: linear-gradient(135deg,var(--green),var(--green2));
+      color: white; border: none; border-radius: 6px;
+      font-size: 14px; font-weight: 700; letter-spacing: .5px;
+      text-transform: uppercase; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: all .3s ease; box-shadow: 0 4px 16px rgba(0,164,79,.3);
+    }
+    .btn-submit:hover { background: linear-gradient(135deg,var(--orange),var(--orange2)); box-shadow: 0 6px 20px rgba(240,90,36,.35); }
+
+    /* ═══════════════════════════════════════
+       SCROLL TO TOP
+    ═══════════════════════════════════════ */
+    .scroll-top {
+      position: fixed; bottom: 32px; right: 32px; z-index: 999;
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg,var(--green),var(--green2));
+      border: none; border-radius: 50%; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: translateY(16px); transition: all .3s ease;
+      box-shadow: 0 4px 16px rgba(0,164,79,.4);
+    }
+    .scroll-top.visible { opacity: 1; transform: translateY(0); }
+    .scroll-top:hover { background: linear-gradient(135deg,var(--orange),var(--orange2)); box-shadow: 0 4px 16px rgba(240,90,36,.4); }
+    .scroll-top iconify-icon { color: white; font-size: 20px; }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .hstats-grid { grid-template-columns: repeat(2,1fr); }
+      .story-grid,.history-grid,.ceo-grid,.contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .history-left { position: static; }
+      .news-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 64px 0; }
+      .container { padding: 0 20px; }
+      .hstats-grid { grid-template-columns: 1fr 1fr; }
+      .news-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .ceo-stats-row { gap: 20px; }
+    }
+    /* ===============================
+MOBILE RESPONSIVE
+================================*/
+
+@media (max-width:768px){
+
+/* Container */
+.container{
+padding:0 18px;
+}
+
+/* Banner Heading */
+.banner-section h1{
+font-size:38px;
+line-height:1.2;
+}
+
+/* Stats Section */
+.hstats-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.hstat-box{
+padding:1.5rem 1rem;
+}
+
+/* Story Section */
+.story-grid{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+/* History Section */
+.history-grid{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+.history-left{
+position:relative;
+top:0;
+}
+
+/* Timeline spacing */
+.tl-item{
+padding-left:50px;
+gap:20px;
+}
+
+/* CEO Section */
+.ceo-grid{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+.ceo-img-area{
+height:260px;
+}
+
+/* News Section */
+.news-grid{
+grid-template-columns:1fr;
+gap:20px;
+}
+
+/* Contact Section */
+.contact-grid{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+/* Contact Form */
+.form-row{
+grid-template-columns:1fr;
+}
+
+/* Section Padding */
+section{
+padding:60px 0;
+}
+
+/* Heading Size */
+.section-heading{
+font-size:28px;
+}
+
+}
+
+/* Small Mobile */
+@media (max-width:480px){
+
+.section-heading{
+font-size:24px;
+}
+
+.hstat-num{
+font-size:24px;
+}
+
+.banner-section h1{
+font-size:30px;
+}
+
+.ceo-img-area{
+height:220px;
+}
+
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══ ORIGINAL HEADER — UNTOUCHED ═══ -->
+  <header class="header border-4 border-primary border-top position-fixed start-0 top-0 w-100">
+    <div class="container">
+      <div class="header-wrapper d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <a href="index.html" class="logo-white">
+            <img src="../assets/images/logos/PDH.svg" alt="logo" class="img-fluid" style="width:100px;">
+          </a>
+          <a href="index.html" class="logo-dark">
+            <img src="../assets/images/logos/PDH.svg" alt="logo" class="img-fluid" style="width:75px;">
+          </a>
+        </div>
+        <div class="d-flex align-items-center gap-4">
+          <div class="btn-group">
+            <button class="btn btn-secondary toggle-menu round-45 p-2 d-flex align-items-center justify-content-center bg-white rounded-circle"
+              type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+              <iconify-icon icon="solar:hamburger-menu-line-duotone" class="menu-icon fs-8 text-dark"></iconify-icon>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end p-4">
+              <div class="d-flex flex-column gap-6">
+                <div class="hstack justify-content-between border-bottom pb-6">
+                  <p class="mb-0 fs-5 text-dark">Menu</p>
+                  <button type="button" class="btn-close opacity-75" aria-label="Close"></button>
+                </div>
+                <div class="d-flex flex-column gap-3">
+                  <ul class="header-menu list-unstyled mb-0 d-flex flex-column gap-2">
+                    <li class="header-item"><a href="index.html" aria-current="true" class="header-link active hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Home</a></li>
+                    <li class="header-item"><a href="mission-vision.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Mission & Vision</a></li>
+                    <li class="header-item"><a href="our-history.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Our History</a></li>
+                    <li class="header-item"><a href="Governance.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Governance</a></li>
+                    <li class="header-item"><a href="Collaborations.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Collaborations</a></li>
+                    <li class="header-item"><a href="contact.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Contact Us</a></li>
+                    <li class="header-item"><a href="Careere.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Careers</a></li>
+                  </ul>
+                  <div class="d-flex flex-column gap-2">
+                    <a class="d-flex align-items-center gap-2 text-dark text-decoration-none" href="tel:+92012345678">
+                      <iconify-icon icon="solar:phone-bold" class="text-primary"></iconify-icon>
+                      <span>+92 012 345 6789</span>
+                    </a>
+                    <a class="d-flex align-items-center gap-2 fs-7 text-dark fw-bold text-decoration-none" href="mailto:info@pdhhealthcare.com">
+                      <iconify-icon icon="solar:letter-bold" class="text-primary"></iconify-icon>
+                      <span>info@pdhhealthcare.com</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ PAGE WRAPPER ═══ -->
+  <div class="page-wrapper overflow-hidden">
+
+    <!-- ── ORIGINAL BANNER — UNTOUCHED ── -->
+    <section class="banner-section position-relative d-flex align-items-end min-vh-100">
+      <video class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" autoplay muted loop playsinline>
+        <source src="../assets/images/backgrounds/banner-video.mp4" type="video/mp4" />
+      </video>
+      <div class="container">
+        <div class="d-flex flex-column gap-4 pb-8 position-relative z-1">
+          <div class="row align-items-center">
+            <div class="col-xl-4">
+              <div class="d-flex align-items-center gap-4" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                <img src="../assets/images/logos/PDH_Menu.svg" alt="" class="img-fluid animate-spin" style="width:50px;height:auto;">
+                <p class="mb-0 text-white fs-5 text-opacity-70">Delivering trusted consumer <span class="text-primary">healthcare solutions</span> in Pakistan since 1948.</p>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex align-items-end gap-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+            <h1 class="mb-0 fs-16 text-white lh-1">Welcome to PDH Healthcare</h1>
+            <a href="javascript:void(0)" class="p-1 ps-7 bg-primary rounded-pill">
+              <span class="bg-white round-52 rounded-circle d-flex align-items-center justify-content-center">
+                <iconify-icon icon="lucide:arrow-up-right" class="fs-8 text-dark"></iconify-icon>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── STATS BAR (NEW) ─── -->
+    <div class="home-stats-bar">
+      <div class="hstats-grid">
+        <div class="hstat-box">
+          <div class="hstat-num">1948</div>
+          <div class="hstat-lbl">Established</div>
+        </div>
+        <div class="hstat-box">
+          <div class="hstat-num">75<sup style="font-size:.9rem;">+</sup></div>
+          <div class="hstat-lbl">Years of Legacy</div>
+        </div>
+        <div class="hstat-box">
+          <div class="hstat-num">23<sup style="font-size:.9rem;">+</sup></div>
+          <div class="hstat-lbl">Countries Reached</div>
+        </div>
+        <div class="hstat-box">
+          <div class="hstat-num">500<sup style="font-size:.9rem;">+</sup></div>
+          <div class="hstat-lbl">Healthcare Products</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PARTNERS / MARQUEE ── -->
+    <section class="pricing-section py-5 py-lg-11 py-xl-12 bg-light-gray">
+      <div class="container">
+        <div class="d-flex flex-column gap-5 gap-xl-10">
+          <div class="d-flex flex-column gap-8" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+            <div class="marquee w-100 d-flex align-items-center overflow-hidden">
+              <div class="marquee-content d-flex align-items-center gap-8">
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-1.png" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-2.svg" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-3.svg" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-4.png" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-2.svg" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-1.png" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-2.svg" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-3.svg" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-4.png" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-3.svg" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-1.png" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-2.svg" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-3.svg" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-4.png" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-2.svg" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-1.png" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-2.svg" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-3.svg" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-4.png" alt="partners" class="img-fluid"></div>
+                <div class="marquee-tag hstack justify-content-center"><img src="../assets/images/pricing/partners-3.svg" alt="partners" class="img-fluid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STORY / ABOUT ── -->
+    <section class="story-section" id="about">
+      <div class="story-pattern"></div>
+      <div class="container">
+        <div class="story-grid">
+          <div>
+            <div class="section-label">Our Story</div>
+            <h2 class="section-heading" style="color:white;">Three Generations of <em>Healthcare Excellence</em></h2>
+            <p class="section-body" style="margin-top:24px;">In 2012, with the emergence of the Drug Regulatory Authority of Pakistan (DRAP) Act, PDH Healthcare was formally established — continuing the P.D.H Group's 75-year legacy of pharmaceutical excellence.</p>
+            <p class="section-body" style="margin-top:16px;">With a heritage spanning three generations exclusively within P.D.H Healthcare, the company epitomizes a legacy steeped in hard work, unwavering integrity, and an unrelenting commitment to quality.</p>
+            <p class="section-body" style="margin-top:16px;">PDH Healthcare specializes in nutraceuticals, cosmeceuticals, OTC and alternative healthcare products — delivering safe, effective, and consumer-focused solutions nationwide.</p>
+          </div>
+          <div class="story-visual">
+            <div class="story-badge">
+              <iconify-icon icon="lucide:shield-check"></iconify-icon>
+              <div class="story-badge-text">
+                <strong>DRAP Registered &amp; Compliant</strong>
+                <span>Full regulatory compliance since 2012 under DRAP Act</span>
+              </div>
+            </div>
+            <div class="story-badge">
+              <iconify-icon icon="lucide:flask-conical"></iconify-icon>
+              <div class="story-badge-text">
+                <strong>Multi-Category Portfolio</strong>
+                <span>Tablets, syrups, creams, ointments &amp; sachets</span>
+              </div>
+            </div>
+            <div class="story-badge">
+              <iconify-icon icon="lucide:globe-2"></iconify-icon>
+              <div class="story-badge-text">
+                <strong>International Reach</strong>
+                <span>Exporting to 23+ countries with globally aligned standards</span>
+              </div>
+            </div>
+            <div class="story-badge">
+              <iconify-icon icon="lucide:building-2"></iconify-icon>
+              <div class="story-badge-text">
+                <strong>Three Manufacturing Units</strong>
+                <span>P.D.H Group, P.D.H Laboratories &amp; P.D.H Pharmaceuticals</span>
+              </div>
+            </div>
+            <div style="margin-top:8px;padding-top:20px;border-top:1px solid rgba(255,255,255,.07)">
+              <p style="font-size:13px;font-style:italic;color:rgba(255,255,255,.35);line-height:1.6">
+                "Our core values of integrity, quality, and regulatory compliance have defined the group since 1948 and guide every product we bring to market."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HISTORY ── -->
+    <section class="history-section" id="history">
+      <div class="container">
+        <div class="history-grid">
+          <div class="history-left">
+            <div style="position:relative">
+              <div class="history-since">1948</div>
+              <div class="history-content-box">
+                <div class="section-label">Our History</div>
+                <h2 class="section-heading">A Legacy Built Over <em>Seven Decades</em></h2>
+                <p class="section-body" style="margin-top:20px">Following Pakistan's independence in 1947, P.D.H was established in 1948 as the country's first healthcare manufacturing company — receiving the first local manufacturing license from the Government of Pakistan.</p>
+                <p class="section-body" style="margin-top:16px">Since then, P.D.H has grown alongside Pakistan, contributing consistently to the nation's healthcare development through regulated, high-quality production across multiple specialized units.</p>
+                <div class="history-pills">
+                  <span class="history-pill orange">Pakistan's First</span>
+                  <span class="history-pill green">3 Generations</span>
+                  <span class="history-pill blue">DRAP Compliant</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">1947</div>
+                <div class="tl-text">
+                  <span class="tl-milestone">Independence</span>
+                  <strong>Pakistan Established</strong>
+                  <p>Pakistan achieved independence and emerged as a sovereign nation, creating the need for local healthcare infrastructure.</p>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">1948</div>
+                <div class="tl-text">
+                  <span class="tl-milestone">Foundation</span>
+                  <strong>P.D.H Group Founded</strong>
+                  <p>Established as Pakistan's first healthcare manufacturing company at 42 Nicholson Road, Lahore — receiving the country's first local manufacturing license.</p>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">1970</div>
+                <div class="tl-text">
+                  <span class="tl-milestone">Expansion</span>
+                  <strong>P.D.H Laboratories</strong>
+                  <p>Second manufacturing unit established on Sheikhupura Road, Lahore, specializing in injectable formulations.</p>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">1981</div>
+                <div class="tl-text">
+                  <span class="tl-milestone">Recognition</span>
+                  <strong>No. 1 National Healthcare Company</strong>
+                  <p>P.D.H was officially awarded the status of Pakistan's Number One National Healthcare Company.</p>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">1990</div>
+                <div class="tl-text">
+                  <span class="tl-milestone">Growth</span>
+                  <strong>P.D.H Pharmaceuticals</strong>
+                  <p>Third manufacturing unit launched at Ferozepur Road, Lahore, specializing in tablets and syrups.</p>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-year">2012</div>
+                <div class="tl-text">
+                  <span class="tl-milestone">Milestone</span>
+                  <strong>PDH Healthcare Launched</strong>
+                  <p>With DRAP Act 2012 establishing formal regulation for OTC and alternative healthcare, PDH Healthcare was officially launched — continuing the group's legacy as a pioneer in regulated consumer healthcare.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CEO / LEADERSHIP ── -->
+    <section class="ceo-section" id="leadership">
+      <div class="container">
+        <div class="ceo-grid">
+
+          <!-- CEO Card -->
+          <div class="ceo-card">
+            <div class="ceo-card-top">
+              <!-- ★ FIXED IMAGE AREA — 300px height ★ -->
+              <div class="ceo-img-area">
+                <img src="../assets/images/Sheikh Jameel Altaf.png" alt="Mr. Jameel Altaf — CEO PDH Healthcare">
+                <div class="ceo-img-meta">
+                  <div class="name-line">Mr. Jameel Altaf</div>
+                  <span class="ceo-role-badge">
+                    <iconify-icon icon="mdi:crown"></iconify-icon>
+                    Founder &amp; CEO
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="ceo-card-body">
+              <div class="ceo-fact"><iconify-icon icon="lucide:graduation-cap"></iconify-icon>Qualified Pharmacist</div>
+              <div class="ceo-fact"><iconify-icon icon="lucide:briefcase"></iconify-icon>25+ Years Executive Leadership</div>
+              <div class="ceo-fact"><iconify-icon icon="lucide:building"></iconify-icon>P.D.H Group Veteran — Pharmaceuticals &amp; Laboratories</div>
+              <div class="ceo-fact"><iconify-icon icon="lucide:globe"></iconify-icon>Vision: Globally Competitive Consumer Healthcare</div>
+            </div>
+          </div>
+
+          <!-- CEO Content -->
+          <div>
+            <div class="section-label">Chief Executive</div>
+            <h2 class="section-heading">Visionary Leadership Driving <em>Quality &amp; Growth</em></h2>
+            <p class="section-body" style="margin-top:24px">PDH Healthcare was envisioned and founded by Mr. Jameel Altaf, a qualified Pharmacist with over 25 years of executive leadership experience across pharmaceutical manufacturing, marketing, and operations within the P.D.H Group.</p>
+            <p class="section-body" style="margin-top:16px">Having previously served in senior leadership roles at P.D.H Pharmaceuticals and P.D.H Laboratories, Mr. Altaf brings deep industry knowledge, regulatory understanding, and strategic direction to PDH Healthcare.</p>
+            <p class="section-body" style="margin-top:16px">His vision is to build a globally competitive consumer healthcare company, rooted in Pakistan's legacy of pharmaceutical excellence and aligned with modern regulatory standards. Under his leadership, PDH Healthcare continues to strengthen its position through quality-driven products, professional governance, and a consumer-centric approach.</p>
+            <div class="ceo-stats-row">
+              <div>
+                <div class="ceo-stat-num">25<span>+</span></div>
+                <div class="ceo-stat-lbl">Years Experience</div>
+              </div>
+              <div>
+                <div class="ceo-stat-num">3<span>rd</span></div>
+                <div class="ceo-stat-lbl">Generation Legacy</div>
+              </div>
+              <div>
+                <div class="ceo-stat-num">75<span>+</span></div>
+                <div class="ceo-stat-lbl">Years Group Legacy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── NEWS ── -->
+    <section class="news-section" id="news">
+      <div class="container">
+        <div class="section-label">Resources &amp; News</div>
+        <h2 class="section-heading">Latest from <em>PDH Healthcare</em></h2>
+        <div class="news-grid">
+
+          <article class="news-card">
+            <!-- ★ FIXED NEWS IMAGE — 220px height ★ -->
+            <div class="news-img"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="Healthcare Portfolio"></div>
+            <div class="news-body">
+              <div class="news-date">Dec 24, 2025</div>
+              <h3 class="news-title">PDH Healthcare Strengthens Consumer Healthcare Portfolio</h3>
+              <p class="news-excerpt">With strong leadership, nationwide distribution, and a focus on compliance, PDH Healthcare remains committed to providing safe, affordable, and effective healthcare solutions.</p>
+              <a href="#" class="news-link">Learn More <iconify-icon icon="lucide:arrow-up-right"></iconify-icon></a>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <div class="news-img"><img src="https://images.unsplash.com/photo-1585435557343-3b092031a831?w=800&q=80" alt="Nutraceutical Growth"></div>
+            <div class="news-body">
+              <div class="news-date">Dec 24, 2025</div>
+              <h3 class="news-title">Driving Regulated Nutraceutical &amp; OTC Growth</h3>
+              <p class="news-excerpt">Exploring the strategic initiatives and quality standards that position PDH Healthcare as a leader in regulated nutraceutical and OTC solutions across Pakistan.</p>
+              <a href="#" class="news-link">Learn More <iconify-icon icon="lucide:arrow-up-right"></iconify-icon></a>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <div class="news-img"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&q=80" alt="Growth Story"></div>
+            <div class="news-body">
+              <div class="news-date">Dec 24, 2025</div>
+              <h3 class="news-title">Leadership, Compliance &amp; Nationwide Reach</h3>
+              <p class="news-excerpt">Discover how PDH Healthcare's commitment to regulatory excellence, visionary leadership, and extensive distribution network drives continuous growth.</p>
+              <a href="#" class="news-link">Learn More <iconify-icon icon="lucide:arrow-up-right"></iconify-icon></a>
+            </div>
+          </article>
+
+          <article class="news-card news-hidden" id="extra-news-1">
+            <div class="news-img"><img src="https://images.unsplash.com/photo-1584362917165-526a968579e8?w=800&q=80" alt="Innovation"></div>
+            <div class="news-body">
+              <div class="news-date">Dec 15, 2025</div>
+              <h3 class="news-title">Innovation &amp; Quality: PDH's Commitment to Excellence</h3>
+              <p class="news-excerpt">How PDH Healthcare integrates cutting-edge research and stringent quality controls to deliver superior products meeting international standards.</p>
+              <a href="#" class="news-link">Learn More <iconify-icon icon="lucide:arrow-up-right"></iconify-icon></a>
+            </div>
+          </article>
+
+          <article class="news-card news-hidden" id="extra-news-2">
+            <div class="news-img"><img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=800&q=80" alt="Sustainable Healthcare"></div>
+            <div class="news-body">
+              <div class="news-date">Dec 10, 2025</div>
+              <h3 class="news-title">Sustainable Practices in Modern Healthcare Manufacturing</h3>
+              <p class="news-excerpt">PDH Healthcare embraces environmental responsibility while maintaining the highest standards in pharmaceutical and nutraceutical production.</p>
+              <a href="#" class="news-link">Learn More <iconify-icon icon="lucide:arrow-up-right"></iconify-icon></a>
+            </div>
+          </article>
+
+        </div>
+        <div class="news-more-btn">
+          <button class="btn-outline" id="see-more-btn" onclick="showMoreNews()">
+            See More News <iconify-icon icon="lucide:chevron-down"></iconify-icon>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-label">Contact Us</div>
+        <h2 class="section-heading" style="margin-bottom:56px">Get in <em>Touch</em></h2>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div>
+              <p style="font-size:15px;color:#4a6a55;line-height:1.85;max-width:360px">Let's connect with PDH Healthcare. Share your inquiry and our team will respond promptly.</p>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><iconify-icon icon="solar:letter-bold"></iconify-icon></div>
+              <div class="contact-item-text"><strong>Email</strong><span>info@pdhhealthcare.com</span></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><iconify-icon icon="solar:phone-bold"></iconify-icon></div>
+              <div class="contact-item-text"><strong>Phone</strong><span>+92 012 345 6789</span></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><iconify-icon icon="lucide:map-pin"></iconify-icon></div>
+              <div class="contact-item-text"><strong>Head Office</strong><span>57-D Model Town, Lahore, Pakistan</span></div>
+            </div>
+            <div class="contact-callout">
+              <p>With a legacy spanning over <em>75 Years</em>, PDH continues to shape Pakistan's healthcare landscape.</p>
+            </div>
+          </div>
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-input" placeholder="Ahmed" required>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-input" placeholder="Khan" required>
+              </div>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-input" placeholder="ahmed@company.com" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Company / Organisation</label>
+              <input type="text" class="form-input" placeholder="Your Company">
+            </div>
+            <div class="form-field">
+              <label class="form-label">Message</label>
+              <textarea class="form-textarea" placeholder="Tell us about your inquiry or project..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              Send Message <iconify-icon icon="lucide:send"></iconify-icon>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <button class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <iconify-icon icon="lucide:arrow-up"></iconify-icon>
+    </button>
+
+  </div><!-- end page-wrapper -->
+
+  <!-- ═══ ORIGINAL FOOTER — UNTOUCHED ═══ -->
+  <footer class="footer bg-dark py-5 py-lg-11 py-xl-12">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-5 mb-8 mb-xl-0">
+          <div class="d-flex flex-column gap-8 pe-xl-5">
+            <h2 class="mb-0 text-white">Build something together?</h2>
+            <div class="d-flex flex-column gap-2">
+              <a href="https://www.pdhhealthcare.com/" target="_blank" class="link-hover hstack gap-3 text-white fs-5">
+                <iconify-icon icon="lucide:arrow-up-right" class="fs-7 text-primary"></iconify-icon>
+                info@pdhhealthcare.com
+              </a>
+              <a href="https://maps.app.goo.gl/hpDp81fqzGt5y4bC8" target="_blank" class="link-hover hstack gap-3 text-white fs-5">
+                <iconify-icon icon="lucide:map-pin" class="fs-7 text-primary"></iconify-icon>
+                Head Office: 57-D ModelTown Lahore, Pakistan
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
+          <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
+            <li><a class="link-hover fs-5 text-white" href="index.html">Home</a></li>
+            <li><a class="link-hover fs-5 text-white" href="about-us.html">About</a></li>
+            <li><a class="link-hover fs-5 text-white" href="terms-and-conditions.html">Terms</a></li>
+            <li><a class="link-hover fs-5 text-white" href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
+          <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
+            <li><a class="link-hover fs-5 text-white" href="#!">Facebook</a></li>
+            <li><a class="link-hover fs-5 text-white" href="#!">Instagram</a></li>
+            <li><a class="link-hover fs-5 text-white" href="#!">Twitter</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-xl-3 mb-8 mb-xl-0">
+          <p class="mb-0 text-white text-opacity-70 text-md-end">© PDH Healthcare copyright 2025</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!--<div class="get-template hstack gap-2">
+    <button class="btn bg-primary p-2 round-52 rounded-circle hstack justify-content-center flex-shrink-0" id="scrollToTopBtn">
+      <iconify-icon icon="lucide:arrow-up" class="fs-7 text-dark"></iconify-icon>
+    </button>
+  </div>-->
+
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../assets/libs/aos-master/dist/aos.js"></script>
+  <script src="../assets/js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
+  <script>
+    // Scroll-to-top
+    const scrollBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => scrollBtn.classList.toggle('visible', window.scrollY > 400));
+
+    // Timeline observer
+    const tlObserver = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 100); });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.tl-item').forEach(el => tlObserver.observe(el));
+
+    // Show more news
+    function showMoreNews() {
+      document.querySelectorAll('.news-hidden').forEach((el, i) => {
+        el.style.display = 'block'; el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
+        setTimeout(() => { el.style.transition = 'all .5s ease'; el.style.opacity = '1'; el.style.transform = 'translateY(0)'; el.classList.remove('news-hidden'); }, i * 150 + 50);
+      });
+      document.getElementById('see-more-btn').style.display = 'none';
+    }
+
+    // Form submit
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.btn-submit');
+      btn.innerHTML = '✓ Message Sent Successfully';
+      btn.style.background = 'linear-gradient(135deg,#00a44f,#00a550)';
+      setTimeout(() => { btn.innerHTML = 'Send Message <iconify-icon icon="lucide:send"></iconify-icon>'; btn.style.background = ''; e.target.reset(); }, 3000);
+    }
+
+    if (typeof AOS !== 'undefined') AOS.init({ duration: 1000, once: true, offset: 100 });
+  </script>
+</body>
+</html>

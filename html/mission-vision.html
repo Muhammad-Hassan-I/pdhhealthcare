@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mission & Vision | PDH Healthcare</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/FaviconPDH-02.svg" />
+  <link rel="stylesheet" href="../assets/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../assets/libs/aos-master/dist/aos.css">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  
+  <style>
+    :root {
+      --pdh-orange:  #f05a24;
+      --pdh-orange2: #ff7340;
+      --pdh-green:   #00a44f;
+      --pdh-green2:  #00a550;
+      --pdh-blue:    #28aae1;
+      --pdh-blue2:   #28aae0;
+      --pdh-light:   #f0faf4;
+      --pdh-light2:  #e8f6ff;
+      --pdh-dark:    #0d2010;
+    }
+
+    /* ── Mission & Vision Section ── */
+    .mission-vision-section {
+      background: linear-gradient(135deg, var(--pdh-light) 0%, #ffffff 50%, var(--pdh-light) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mission-vision-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--pdh-orange), var(--pdh-green), var(--pdh-blue));
+    }
+
+    .mv-card {
+      background: #ffffff;
+      border-radius: 25px;
+      padding: 3rem;
+      box-shadow: 0 15px 50px rgba(0,164,79,0.12);
+      transition: all 0.4s ease;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      border-top: 5px solid var(--pdh-green);
+    }
+
+    .mv-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0,164,79,0.07), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .mv-card:hover::before { left: 100%; }
+
+    .mv-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0,164,79,0.2);
+      border-top-color: var(--pdh-orange);
+    }
+
+    /* Mission card — orange top, Vision card — blue top */
+    .mv-card.mission { border-top-color: var(--pdh-orange); }
+    .mv-card.vision  { border-top-color: var(--pdh-blue); }
+    .mv-card.mission:hover { border-top-color: var(--pdh-green); }
+    .mv-card.vision:hover  { border-top-color: var(--pdh-orange); }
+
+    .mv-icon {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      transition: all 0.4s ease;
+    }
+
+    .mv-card.mission .mv-icon {
+      background: linear-gradient(135deg, var(--pdh-orange), var(--pdh-orange2));
+      box-shadow: 0 10px 30px rgba(240,90,36,0.3);
+    }
+
+    .mv-card.vision .mv-icon {
+      background: linear-gradient(135deg, var(--pdh-blue), var(--pdh-blue2));
+      box-shadow: 0 10px 30px rgba(40,170,225,0.3);
+    }
+
+    .mv-card:hover .mv-icon { transform: rotateY(360deg) scale(1.1); }
+
+    .mv-icon iconify-icon { font-size: 3rem; color: white; }
+
+    .mv-card.mission h3 { color: var(--pdh-orange); }
+    .mv-card.vision  h3 { color: var(--pdh-blue); }
+
+    .mv-card h3 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .mv-card p {
+      color: #495057;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    /* ── Values Section ── */
+    .values-section {
+      background: linear-gradient(135deg, #ffffff 0%, var(--pdh-light) 100%);
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #212529;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px; height: 4px;
+      background: linear-gradient(90deg, var(--pdh-orange), var(--pdh-green), var(--pdh-blue));
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      color: #6c757d;
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+    }
+
+    .value-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      height: 100%;
+      box-shadow: 0 10px 30px rgba(0,164,79,0.08);
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 20px 20px 0 0;
+    }
+
+    /* Each value card gets a different top color */
+    .value-card:nth-child(1)::before { background: var(--pdh-orange); }
+    .value-card:nth-child(2)::before { background: var(--pdh-green); }
+    .value-card:nth-child(3)::before { background: var(--pdh-blue); }
+    .value-card:nth-child(4)::before { background: var(--pdh-green2); }
+
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,164,79,0.15);
+      border-color: var(--pdh-green);
+    }
+
+    .value-card:nth-child(1):hover { border-color: var(--pdh-orange); }
+    .value-card:nth-child(2):hover { border-color: var(--pdh-green); }
+    .value-card:nth-child(3):hover { border-color: var(--pdh-blue); }
+    .value-card:nth-child(4):hover { border-color: var(--pdh-green2); }
+
+    .value-icon {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    /* Each icon gets its own color */
+    .col-md-6:nth-child(1) .value-icon { background: linear-gradient(135deg, var(--pdh-orange), var(--pdh-orange2)); box-shadow: 0 8px 20px rgba(240,90,36,0.25); }
+    .col-md-6:nth-child(2) .value-icon { background: linear-gradient(135deg, var(--pdh-green), var(--pdh-green2)); box-shadow: 0 8px 20px rgba(0,164,79,0.25); }
+    .col-md-6:nth-child(3) .value-icon { background: linear-gradient(135deg, var(--pdh-blue), var(--pdh-blue2)); box-shadow: 0 8px 20px rgba(40,170,225,0.25); }
+    .col-md-6:nth-child(4) .value-icon { background: linear-gradient(135deg, var(--pdh-green2), var(--pdh-green)); box-shadow: 0 8px 20px rgba(0,165,80,0.25); }
+
+    .value-card:hover .value-icon { transform: scale(1.1) rotate(360deg); }
+
+    .value-icon iconify-icon { font-size: 2.5rem; color: white; }
+
+    .col-md-6:nth-child(1) .value-card h4 { color: var(--pdh-orange); }
+    .col-md-6:nth-child(2) .value-card h4 { color: var(--pdh-green); }
+    .col-md-6:nth-child(3) .value-card h4 { color: var(--pdh-blue); }
+    .col-md-6:nth-child(4) .value-card h4 { color: var(--pdh-green2); }
+
+    .value-card h4 {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .value-card p { color: #6c757d; line-height: 1.7; font-size: 1rem; }
+
+    /* ── Global Footprint Section ── */
+    .footprint-section {
+      background: linear-gradient(135deg, var(--pdh-dark) 0%, #0a3520 50%, #0d1f35 100%);
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footprint-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300a44f' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* colored glow blobs */
+    .footprint-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 10% 50%, rgba(240,90,36,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 90% 50%, rgba(40,170,225,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .footprint-section .section-title { color: white; }
+
+    .footprint-section .section-title::after {
+      background: linear-gradient(90deg, var(--pdh-orange), var(--pdh-green), var(--pdh-blue));
+    }
+
+    .footprint-section .section-subtitle { color: rgba(255,255,255,0.8); }
+
+    .footprint-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      min-width: 220px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .stat-card:nth-child(1)::before { background: var(--pdh-orange); }
+    .stat-card:nth-child(2)::before { background: var(--pdh-green); }
+    .stat-card:nth-child(3)::before { background: var(--pdh-blue); }
+    .stat-card:nth-child(4)::before { background: var(--pdh-green2); }
+
+    .stat-card:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-10px);
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      display: block;
+      animation: countUp 0.6s ease-out;
+    }
+
+    .stat-card:nth-child(1) .stat-number { color: var(--pdh-orange); }
+    .stat-card:nth-child(2) .stat-number { color: var(--pdh-green); }
+    .stat-card:nth-child(3) .stat-number { color: var(--pdh-blue); }
+    .stat-card:nth-child(4) .stat-number { color: var(--pdh-green2); }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.95);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .stat-description {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+
+    /* ── Map Container ── */
+    .map-container {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 25px;
+      padding: 3rem;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(10px);
+    }
+
+    .map-container h4 {
+      color: white;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .map-container > p { color: rgba(255,255,255,0.6) !important; }
+
+    .regions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .region-item {
+      background: rgba(255,255,255,0.05);
+      padding: 1.5rem;
+      border-radius: 15px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .region-item::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      border-radius: 0 0 15px 15px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .region-item:nth-child(1)::before { background: var(--pdh-orange); }
+    .region-item:nth-child(2)::before { background: var(--pdh-green); }
+    .region-item:nth-child(3)::before { background: var(--pdh-blue); }
+    .region-item:nth-child(4)::before { background: var(--pdh-orange); }
+    .region-item:nth-child(5)::before { background: var(--pdh-green); }
+    .region-item:nth-child(6)::before { background: var(--pdh-blue); }
+
+    .region-item:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-5px);
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .region-item:hover::before { opacity: 1; }
+
+    .region-item:nth-child(1) iconify-icon { color: var(--pdh-orange); }
+    .region-item:nth-child(2) iconify-icon { color: var(--pdh-green); }
+    .region-item:nth-child(3) iconify-icon { color: var(--pdh-blue); }
+    .region-item:nth-child(4) iconify-icon { color: var(--pdh-orange); }
+    .region-item:nth-child(5) iconify-icon { color: var(--pdh-green); }
+    .region-item:nth-child(6) iconify-icon { color: var(--pdh-blue); }
+
+    .region-item iconify-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+
+    .region-item h5 { color: white; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+    .region-item p { color: rgba(255,255,255,0.55); font-size: 0.9rem; margin: 0; }
+
+    /* ── Marquee ── */
+    .about-img .marquee { background: var(--pdh-green) !important; }
+
+    /* ── Animations ── */
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 991px) {
+      .mv-card { padding: 2rem; margin-bottom: 2rem; }
+      .section-title { font-size: 2rem; }
+      .stat-card { min-width: 180px; }
+      .stat-number { font-size: 2.5rem; }
+    }
+
+    @media (max-width: 767px) {
+      .mv-card { padding: 1.5rem; }
+      .mv-icon { width: 80px; height: 80px; }
+      .section-title { font-size: 1.75rem; }
+      .map-container { padding: 2rem 1.5rem; }
+      .regions-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══ ORIGINAL HEADER — UNTOUCHED ═══ -->
+  <header class="header border-4 border-primary border-top position-fixed start-0 top-0 w-100">
+    <div class="container">
+      <div class="header-wrapper d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <a href="index.html" class="logo-white">
+            <img src="../assets/images/logos/PDH.svg" alt="logo" class="img-fluid" style="width:100px;">
+          </a>
+          <a href="index.html" class="logo-dark">
+            <img src="../assets/images/logos/PDH.svg" alt="logo" class="img-fluid" style="width:75px;">
+          </a>
+        </div>
+        <div class="d-flex align-items-center gap-4">
+          <div class="btn-group">
+            <button
+              class="btn btn-secondary toggle-menu round-45 p-2 d-flex align-items-center justify-content-center bg-white rounded-circle"
+              type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+              <iconify-icon icon="solar:hamburger-menu-line-duotone" class="menu-icon fs-8 text-dark"></iconify-icon>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end p-4">
+              <div class="d-flex flex-column gap-6">
+                <div class="hstack justify-content-between border-bottom pb-6">
+                  <p class="mb-0 fs-5 text-dark">Menu</p>
+                  <button type="button" class="btn-close opacity-75" aria-label="Close"></button>
+                </div>
+                <div class="d-flex flex-column gap-3">
+                  <ul class="header-menu list-unstyled mb-0 d-flex flex-column gap-2">
+                    <li class="header-item">
+                      <a href="index.html" aria-current="true" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Home
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="mission-vision.html" aria-current="true" class="header-link active hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Mission & Vision
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="our-history.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Our History
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="Governance.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Governance
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="Collaborations.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Collaborations
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="contact.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Contact Us
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="index.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Careers
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="d-flex flex-column gap-2">
+                  <a class="d-flex align-items-center gap-2 text-dark text-decoration-none" href="tel:+92012345678">
+                    <iconify-icon icon="solar:phone-bold" class="text-primary"></iconify-icon>
+                    <span>+92 012 345 6789</span>
+                  </a>
+                  <a class="d-flex align-items-center gap-2 fs-7 text-dark fw-bold text-decoration-none" href="mailto:info@pdhhealthcare.com">
+                    <iconify-icon icon="solar:letter-bold" class="text-primary"></iconify-icon>
+                    <span>info@pdhhealthcare.com</span>
+                  </a>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ PAGE WRAPPER ═══ -->
+  <div class="page-wrapper overflow-hidden">
+
+    <!-- Banner Section — UNTOUCHED -->
+    <section class="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
+      style="background-image: url(../assets/images/backgrounds/Mandv.jpg);">
+      <div class="container">
+        <div class="d-flex flex-column gap-4 pb-5 pb-xl-10 position-relative z-1">
+          <div class="row align-items-center">
+            <div class="col-xl-5">
+              <div class="d-flex align-items-center gap-4" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                <img src="../assets/images/logos/PDH_Menu.svg" alt="" class="img-fluid animate-spin" style="width: 50px; height: auto;">
+                <p class="mb-0 text-white fs-5 text-opacity-90">Transforming lives through <span class="text-primary">innovative healthcare solutions</span> and compassionate care worldwide</p>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex align-items-end gap-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+            <h1 class="mb-0 fs-16 text-white lh-1">Mission & Vision</h1>
+            <a href="javascript:void(0)" class="p-1 ps-7 bg-primary rounded-pill">
+              <span class="bg-white round-52 rounded-circle d-flex align-items-center justify-content-center">
+                <iconify-icon icon="lucide:arrow-up-right" class="fs-8 text-dark"></iconify-icon>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Mission & Vision Cards ── -->
+    <section class="mission-vision-section py-5 py-lg-11 py-xl-12">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2 class="section-title">Our Purpose &amp; Direction</h2>
+          <p class="section-subtitle">Guiding principles that drive our commitment to healthcare excellence</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
+            <div class="mv-card mission">
+              <div class="mv-icon">
+                <iconify-icon icon="mdi:target"></iconify-icon>
+              </div>
+              <h3>Our Mission</h3>
+              <p>
+                To provide accessible, innovative, and high-quality healthcare products that enhance the well-being
+                of communities worldwide. We are committed to advancing medical science through research and development,
+                ensuring that every individual receives the care they deserve with compassion and excellence.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+            <div class="mv-card vision">
+              <div class="mv-icon">
+                <iconify-icon icon="mdi:eye"></iconify-icon>
+              </div>
+              <h3>Our Vision</h3>
+              <p>
+                To be a global leader in healthcare innovation, transforming lives through cutting-edge pharmaceutical
+                solutions and unwavering dedication to patient care. We envision a healthier future where our products
+                and services create lasting positive impacts on global health and wellness.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Values Section ── -->
+    <section class="values-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2 class="section-title">Our Core Values</h2>
+          <p class="section-subtitle">The principles that define who we are and how we work</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="value-card">
+              <div class="value-icon">
+                <iconify-icon icon="mdi:shield-check"></iconify-icon>
+              </div>
+              <h4>Integrity</h4>
+              <p>We uphold the highest ethical standards in all our operations, ensuring transparency and trust with stakeholders.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="value-card">
+              <div class="value-icon">
+                <iconify-icon icon="mdi:lightbulb-on"></iconify-icon>
+              </div>
+              <h4>Innovation</h4>
+              <p>We continuously push boundaries through research and development to bring groundbreaking healthcare solutions.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="value-card">
+              <div class="value-icon">
+                <iconify-icon icon="mdi:heart-pulse"></iconify-icon>
+              </div>
+              <h4>Compassion</h4>
+              <p>Patient well-being is at the heart of everything we do, driving us to deliver care with empathy and dedication.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="value-card">
+              <div class="value-icon">
+                <iconify-icon icon="mdi:trophy"></iconify-icon>
+              </div>
+              <h4>Excellence</h4>
+              <p>We strive for perfection in quality, service, and performance, setting industry benchmarks for healthcare delivery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Img + Marquee — UNTOUCHED structure, color updated -->
+    <section class="about-img">
+      <img src="../assets/images/backgrounds/Vision 01 jpg.jpg" alt="" class="w-100 object-fit-cover">
+      <div class="marquee w-100 d-flex align-items-center overflow-hidden py-4" style="background: var(--pdh-green);">
+        <div class="marquee-content d-flex align-items-center gap-8">
+          <div class="hstack gap-4 flex-shrink-0">
+            <h4 class="mb-0 text-white">Day TO Day</h4>
+            <span class="round-10 bg-white bg-opacity-25 rounded-circle flex-shrink-0"></span>
+          </div>
+          <div class="hstack gap-4 flex-shrink-0">
+            <h4 class="mb-0 text-white">CARLO ERBA Reagents</h4>
+            <span class="round-10 bg-white bg-opacity-25 rounded-circle flex-shrink-0"></span>
+          </div>
+          <div class="hstack gap-4 flex-shrink-0">
+            <h4 class="mb-0 text-white">UCB</h4>
+            <span class="round-10 bg-white bg-opacity-25 rounded-circle flex-shrink-0"></span>
+          </div>
+          <div class="hstack gap-4 flex-shrink-0">
+            <h4 class="mb-0 text-white">Erek USA</h4>
+            <span class="round-10 bg-white bg-opacity-25 rounded-circle flex-shrink-0"></span>
+          </div>
+          <div class="hstack gap-4 flex-shrink-0">
+            <h4 class="mb-0 text-white">Day TO Day</h4>
+            <span class="round-10 bg-white bg-opacity-25 rounded-circle flex-shrink-0"></span>
+          </div>
+          <div class="hstack gap-4 flex-shrink-0">
+            <h4 class="mb-0 text-white">CARLO ERBA Reagents</h4>
+            <span class="round-10 bg-white bg-opacity-25 rounded-circle flex-shrink-0"></span>
+          </div>
+          <div class="hstack gap-4 flex-shrink-0">
+            <h4 class="mb-0 text-white">UCB</h4>
+            <span class="round-10 bg-white bg-opacity-25 rounded-circle flex-shrink-0"></span>
+          </div>
+          <div class="hstack gap-4 flex-shrink-0">
+            <h4 class="mb-0 text-white">Erek USA</h4>
+            <span class="round-10 bg-white bg-opacity-25 rounded-circle flex-shrink-0"></span>
+          </div>
+          <div class="hstack gap-4 flex-shrink-0">
+            <h4 class="mb-0 text-white">Day To Day</h4>
+            <span class="round-10 bg-white bg-opacity-25 rounded-circle flex-shrink-0"></span>
+          </div>
+          <div class="hstack gap-4 flex-shrink-0">
+            <h4 class="mb-0 text-white">CARLO ERBA Reagents</h4>
+            <span class="round-10 bg-white bg-opacity-25 rounded-circle flex-shrink-0"></span>
+          </div>
+          <div class="hstack gap-4 flex-shrink-0">
+            <h4 class="mb-0 text-white">UCB</h4>
+            <span class="round-10 bg-white bg-opacity-25 rounded-circle flex-shrink-0"></span>
+          </div>
+          <div class="hstack gap-4 flex-shrink-0">
+            <h4 class="mb-0 text-white">Erek USA</h4>
+            <span class="round-10 bg-white bg-opacity-25 rounded-circle flex-shrink-0"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Global Footprint Section ── -->
+    <section class="footprint-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2 class="section-title">Global Footprint</h2>
+          <p class="section-subtitle">Making a difference in healthcare across continents</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="footprint-stats" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-card" data-aos="zoom-in" data-aos-delay="150">
+            <span class="stat-number"><span class="count" data-target="45">45</span>+</span>
+            <div class="stat-label">Countries</div>
+            <p class="stat-description">Presence in global markets</p>
+          </div>
+
+          <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+            <span class="stat-number"><span class="count" data-target="158">158</span>+</span>
+            <div class="stat-label">Partners</div>
+            <p class="stat-description">Trusted brand collaborations</p>
+          </div>
+
+          <div class="stat-card" data-aos="zoom-in" data-aos-delay="250">
+            <span class="stat-number">$<span class="count" data-target="15">15</span>M</span>
+            <div class="stat-label">Investments</div>
+            <p class="stat-description">In strategic initiatives</p>
+          </div>
+
+          <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+            <span class="stat-number"><span class="count" data-target="500">500</span>+</span>
+            <div class="stat-label">Products</div>
+            <p class="stat-description">Healthcare solutions delivered</p>
+          </div>
+        </div>
+
+        <!-- Map Container -->
+        <div class="map-container" data-aos="fade-up" data-aos-delay="400">
+          <h4>Our Global Presence</h4>
+          <p class="text-center mb-4">
+            Expanding reach across international regions with localized expertise and worldwide impact
+          </p>
+
+          <div class="regions-grid">
+            <div class="region-item" data-aos="flip-left" data-aos-delay="100">
+              <iconify-icon icon="mdi:earth"></iconify-icon>
+              <h5>Asia Pacific</h5>
+              <p>25+ Countries</p>
+            </div>
+            <div class="region-item" data-aos="flip-left" data-aos-delay="150">
+              <iconify-icon icon="mdi:earth"></iconify-icon>
+              <h5>Middle East</h5>
+              <p>10+ Countries</p>
+            </div>
+            <div class="region-item" data-aos="flip-left" data-aos-delay="200">
+              <iconify-icon icon="mdi:earth"></iconify-icon>
+              <h5>Africa</h5>
+              <p>8+ Countries</p>
+            </div>
+            <div class="region-item" data-aos="flip-left" data-aos-delay="250">
+              <iconify-icon icon="mdi:earth"></iconify-icon>
+              <h5>Europe</h5>
+              <p>5+ Countries</p>
+            </div>
+            <div class="region-item" data-aos="flip-left" data-aos-delay="300">
+              <iconify-icon icon="mdi:earth"></iconify-icon>
+              <h5>Americas</h5>
+              <p>3+ Countries</p>
+            </div>
+            <div class="region-item" data-aos="flip-left" data-aos-delay="350">
+              <iconify-icon icon="mdi:earth"></iconify-icon>
+              <h5>Oceania</h5>
+              <p>2+ Countries</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ═══ ORIGINAL FOOTER — UNTOUCHED ═══ -->
+  <footer class="footer bg-dark py-5 py-lg-11 py-xl-12">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-5 mb-8 mb-xl-0">
+          <div class="d-flex flex-column gap-8 pe-xl-5">
+            <h2 class="mb-0 text-white">Build something together?</h2>
+            <div class="d-flex flex-column gap-2">
+              <a href="https://www.pdhhealthcare.com/" target="_blank" class="link-hover hstack gap-3 text-white fs-5">
+                <iconify-icon icon="lucide:arrow-up-right" class="fs-7 text-primary"></iconify-icon>
+                info@pdhhealthcare.com
+              </a>
+              <a href="https://maps.app.goo.gl/hpDp81fqzGt5y4bC8" target="_blank" class="link-hover hstack gap-3 text-white fs-5">
+                <iconify-icon icon="lucide:map-pin" class="fs-7 text-primary"></iconify-icon>
+                Head Office: 57-D ModelTown Lahore, Pakistan
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
+          <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
+            <li><a class="link-hover fs-5 text-white" href="index.html">Home</a></li>
+            <li><a class="link-hover fs-5 text-white" href="about-us.html">About</a></li>
+            <li><a class="link-hover fs-5 text-white" href="terms-and-conditions.html">Terms</a></li>
+            <li><a class="link-hover fs-5 text-white" href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
+          <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
+            <li><a class="link-hover fs-5 text-white" href="#!">Facebook</a></li>
+            <li><a class="link-hover fs-5 text-white" href="#!">Instagram</a></li>
+            <li><a class="link-hover fs-5 text-white" href="#!">Twitter</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-xl-3 mb-8 mb-xl-0">
+          <p class="mb-0 text-white text-opacity-70 text-md-end">© PDH HealthCare copyright 2025</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="get-template hstack gap-2">
+    <button class="btn bg-primary p-2 round-52 rounded-circle hstack justify-content-center flex-shrink-0"
+      id="scrollToTopBtn">
+      <iconify-icon icon="lucide:arrow-up" class="fs-7 text-dark"></iconify-icon>
+    </button>
+  </div>
+
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../assets/libs/aos-master/dist/aos.js"></script>
+  <script src="../assets/js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
+  <script>
+    if (typeof AOS !== 'undefined') {
+      AOS.init({ duration: 1000, once: true, offset: 100 });
+    }
+
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    if (scrollToTopBtn) {
+      window.addEventListener('scroll', () => {
+        scrollToTopBtn.style.opacity  = window.pageYOffset > 300 ? '1' : '0';
+        scrollToTopBtn.style.pointerEvents = window.pageYOffset > 300 ? 'auto' : 'none';
+      });
+      scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
+</body>
+</html>

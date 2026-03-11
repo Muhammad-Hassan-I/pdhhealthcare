@@ -1,0 +1,1084 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our History | PDH Healthcare</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/FaviconPDH-02.svg" />
+  <link rel="stylesheet" href="../assets/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../assets/libs/aos-master/dist/aos.css">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── PDH BRAND COLORS ─── */
+    :root {
+      --pdh-orange:  #f05a24;
+      --pdh-orange2: #ff7340;
+      --pdh-green:   #00a44f;
+      --pdh-green2:  #00a550;
+      --pdh-blue:    #28aae1;
+      --pdh-blue2:   #28aae0;
+      --pdh-dark:    #0d1f0f;
+      --pdh-dark2:   #122614;
+      --pdh-white:   #ffffff;
+      --pdh-light:   #f0faf4;
+      --pdh-gray:    #4a6655;
+    }
+
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #ffffff;
+      color: var(--pdh-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── BANNER / HERO ─── */
+    .banner-section {
+      min-height: 520px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .banner-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(13,31,15,0.88) 0%,
+        rgba(0,164,79,0.35) 60%,
+        rgba(40,170,225,0.2) 100%
+      );
+    }
+
+    /* Orange top bar accent */
+    .banner-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--pdh-orange), var(--pdh-green), var(--pdh-blue));
+      z-index: 10;
+    }
+
+    .banner-section .container { position: relative; z-index: 2; }
+
+    .banner-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(240,90,36,0.15);
+      border: 1px solid rgba(240,90,36,0.4);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #ffb399;
+      margin-bottom: 1.5rem;
+    }
+
+    .banner-eyebrow .dot {
+      width: 6px; height: 6px;
+      background: var(--pdh-orange);
+      border-radius: 50%;
+      animation: blink 1.5s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .banner-title {
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 800;
+      color: var(--pdh-white);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 0;
+    }
+
+    .banner-title span { color: var(--pdh-orange); }
+
+    .banner-subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 300;
+      max-width: 500px;
+      line-height: 1.8;
+    }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      background: var(--pdh-dark);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stats-bar::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse at 20% 50%, rgba(0,164,79,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(40,170,225,0.1) 0%, transparent 60%);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-box {
+      padding: 2.8rem 2rem;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    .stat-box:last-child { border-right: none; }
+
+    .stat-box:hover { background: rgba(255,255,255,0.03); }
+
+    .stat-box::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      transition: width 0.4s ease;
+    }
+
+    .stat-box:nth-child(1)::after { background: var(--pdh-orange); }
+    .stat-box:nth-child(2)::after { background: var(--pdh-green); }
+    .stat-box:nth-child(3)::after { background: var(--pdh-blue); }
+
+    .stat-box:hover::after { width: 60%; }
+
+    .stat-num {
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.03em;
+    }
+
+    .stat-box:nth-child(1) .stat-num { color: var(--pdh-orange); }
+    .stat-box:nth-child(2) .stat-num { color: var(--pdh-green); }
+    .stat-box:nth-child(3) .stat-num { color: var(--pdh-blue); }
+
+    .stat-lbl {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      font-weight: 500;
+    }
+
+    /* ─── SECTION INTRO ─── */
+    .history-intro {
+      background: var(--pdh-light);
+      padding: 6rem 0 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .history-intro::before {
+      content: 'PDH';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 22vw;
+      font-weight: 900;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(0,164,79,0.06);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .intro-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-tag-line {
+      width: 36px; height: 2px;
+      background: var(--pdh-orange);
+      border-radius: 1px;
+    }
+
+    .intro-tag span {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--pdh-orange);
+    }
+
+    .intro-heading {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      color: var(--pdh-dark);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      position: relative;
+    }
+
+    .intro-heading em {
+      font-style: normal;
+      color: var(--pdh-green);
+    }
+
+    .intro-text {
+      font-size: 1.05rem;
+      color: var(--pdh-gray);
+      font-weight: 300;
+      line-height: 1.9;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* ─── TIMELINE SECTION ─── */
+    .timeline-wrap {
+      background: var(--pdh-light);
+      padding: 2rem 0 6rem;
+    }
+
+    .tl-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+    }
+
+    /* Center spine */
+    .tl-spine {
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--pdh-green) 8%,
+        var(--pdh-blue) 50%,
+        var(--pdh-orange) 92%,
+        transparent 100%
+      );
+      transform: translateX(-50%);
+      opacity: 0.25;
+    }
+
+    /* ─── MILESTONE ITEM ─── */
+    .milestone {
+      display: grid;
+      grid-template-columns: 1fr 120px 1fr;
+      gap: 0;
+      margin-bottom: 5rem;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .milestone.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Center column */
+    .milestone-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    .milestone-node {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 6px white, 0 0 0 7px rgba(0,0,0,0.07);
+    }
+
+    .milestone:nth-child(1) .milestone-node { background: linear-gradient(135deg, var(--pdh-orange), var(--pdh-orange2)); }
+    .milestone:nth-child(2) .milestone-node { background: linear-gradient(135deg, var(--pdh-green), var(--pdh-green2)); }
+    .milestone:nth-child(3) .milestone-node { background: linear-gradient(135deg, var(--pdh-blue), var(--pdh-blue2)); }
+    .milestone:nth-child(4) .milestone-node { background: linear-gradient(135deg, var(--pdh-orange), var(--pdh-orange2)); }
+    .milestone:nth-child(5) .milestone-node { background: linear-gradient(135deg, var(--pdh-green), var(--pdh-green2)); }
+    .milestone:nth-child(6) .milestone-node { background: linear-gradient(135deg, var(--pdh-blue), var(--pdh-blue2)); }
+    .milestone:nth-child(7) .milestone-node { background: linear-gradient(135deg, var(--pdh-orange), var(--pdh-green)); }
+
+    .milestone-node svg {
+      width: 20px; height: 20px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .milestone-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.75rem;
+      border-radius: 20px;
+      white-space: nowrap;
+      color: white;
+    }
+
+    .milestone:nth-child(1) .milestone-badge { background: var(--pdh-orange); }
+    .milestone:nth-child(2) .milestone-badge { background: var(--pdh-green); }
+    .milestone:nth-child(3) .milestone-badge { background: var(--pdh-blue); }
+    .milestone:nth-child(4) .milestone-badge { background: var(--pdh-orange); }
+    .milestone:nth-child(5) .milestone-badge { background: var(--pdh-green); }
+    .milestone:nth-child(6) .milestone-badge { background: var(--pdh-blue); }
+    .milestone:nth-child(7) .milestone-badge { background: var(--pdh-green); }
+
+    /* ─── MILESTONE CARD ─── */
+    .milestone-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2.2rem 2.2rem 2rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .milestone-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+    }
+
+    /* Top color strip per card */
+    .milestone-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .milestone:nth-child(odd) .milestone-card::before  { background: linear-gradient(90deg, var(--pdh-orange), var(--pdh-orange2)); }
+    .milestone:nth-child(even) .milestone-card::before { background: linear-gradient(90deg, var(--pdh-green), var(--pdh-blue)); }
+
+    /* Left accent bar */
+    .milestone-card::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 3px; bottom: 0;
+      width: 0;
+      transition: width 0.35s ease;
+      border-radius: 0 0 0 12px;
+    }
+
+    .milestone:nth-child(odd)  .milestone-card::after { background: rgba(240,90,36,0.06); }
+    .milestone:nth-child(even) .milestone-card::after { background: rgba(0,164,79,0.06); }
+
+    .milestone-card:hover::after { width: 100%; }
+
+    .card-icon-wrap {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .milestone:nth-child(odd)  .card-icon-wrap { background: rgba(240,90,36,0.1); }
+    .milestone:nth-child(even) .card-icon-wrap { background: rgba(0,164,79,0.1); }
+
+    .card-icon-wrap svg {
+      width: 20px; height: 20px;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .milestone:nth-child(odd)  .card-icon-wrap svg { stroke: var(--pdh-orange); }
+    .milestone:nth-child(even) .card-icon-wrap svg { stroke: var(--pdh-green); }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--pdh-dark);
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.02em;
+      position: relative;
+    }
+
+    .card-title::after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 2px;
+      border-radius: 1px;
+      margin-top: 0.5rem;
+    }
+
+    .milestone:nth-child(odd)  .card-title::after { background: var(--pdh-orange); }
+    .milestone:nth-child(even) .card-title::after { background: var(--pdh-green); }
+
+    .card-body {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: #5a7060;
+      font-weight: 400;
+      position: relative;
+    }
+
+    /* Empty placeholder for alternating */
+    .milestone-empty { /* nothing needed */ }
+
+    /* ─── IMAGE HALF (for milestones with images) ─── */
+    .milestone-img-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/0;
+      position: relative;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+
+    .milestone-img-wrap img {
+      width: 100%; ;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .milestone-img-wrap:hover img { transform: scale(1.04); }
+
+    .milestone-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(13,31,15,0.15), transparent);
+      pointer-events: none;
+    }
+
+    /* ─── LEGACY QUOTE BANNER ─── */
+    .legacy-banner {
+      background: var(--pdh-dark);
+      padding: 6rem 2rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .legacy-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 15% 50%, rgba(0,164,79,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 85% 50%, rgba(40,170,225,0.1) 0%, transparent 60%);
+    }
+
+    /* Animated grid */
+    .legacy-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,164,79,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,164,79,0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+
+    .legacy-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .legacy-orn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .legacy-orn-line {
+      flex: 1;
+      max-width: 100px;
+      height: 1px;
+    }
+
+    .legacy-orn-line:first-child {
+      background: linear-gradient(90deg, transparent, var(--pdh-orange));
+    }
+
+    .legacy-orn-line:last-child {
+      background: linear-gradient(90deg, var(--pdh-green), transparent);
+    }
+
+    .legacy-orn-icons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .legacy-orn-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+    }
+
+    .legacy-orn-dot:nth-child(1) { background: var(--pdh-orange); }
+    .legacy-orn-dot:nth-child(2) { background: var(--pdh-green); width: 10px; height: 10px; }
+    .legacy-orn-dot:nth-child(3) { background: var(--pdh-blue); }
+
+    .legacy-quote-mark {
+      font-size: 5rem;
+      line-height: 1;
+      font-family: Georgia, serif;
+      color: var(--pdh-green);
+      opacity: 0.3;
+      margin-bottom: -1.5rem;
+    }
+
+    .legacy-text {
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .legacy-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--pdh-orange);
+    }
+
+    .legacy-label::before,
+    .legacy-label::after {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.5;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat-box { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .stat-box:last-child { border-bottom: none; }
+
+      .tl-spine { left: 28px; }
+      .tl-container { padding-left: 4rem; }
+
+      .milestone {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-left: 1rem;
+        position: relative;
+      }
+
+      .milestone-center {
+        position: absolute;
+        left: -3.5rem;
+        top: 1rem;
+      }
+
+      /* Always show card, hide image on mobile for simplicity */
+      .milestone-img-wrap { display: none; }
+      .milestone-empty { display: none; }
+    }
+
+    /* ─── ANIMATION DELAYS ─── */
+    .milestone:nth-child(1) { transition-delay: 0.05s; }
+    .milestone:nth-child(2) { transition-delay: 0.1s; }
+    .milestone:nth-child(3) { transition-delay: 0.15s; }
+    .milestone:nth-child(4) { transition-delay: 0.2s; }
+    .milestone:nth-child(5) { transition-delay: 0.25s; }
+    .milestone:nth-child(6) { transition-delay: 0.3s; }
+    .milestone:nth-child(7) { transition-delay: 0.35s; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       ORIGINAL HEADER — UNTOUCHED
+  ═══════════════════════════════════════════ -->
+  <header class="header border-4 border-primary border-top position-fixed start-0 top-0 w-100">
+    <div class="container">
+      <div class="header-wrapper d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <a href="index.html" class="logo-white">
+            <img src="../assets/images/logos/PDH.svg" alt="logo" class="img-fluid" style="width:100px;">
+          </a>
+          <a href="index.html" class="logo-dark">
+            <img src="../assets/images/logos/PDH.svg" alt="logo" class="img-fluid" style="width:75px;">
+          </a>
+        </div>
+        <div class="d-flex align-items-center gap-4">
+          <div class="btn-group">
+            <button
+              class="btn btn-secondary toggle-menu round-45 p-2 d-flex align-items-center justify-content-center bg-white rounded-circle"
+              type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+              <iconify-icon icon="solar:hamburger-menu-line-duotone" class="menu-icon fs-8 text-dark"></iconify-icon>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end p-4">
+              <div class="d-flex flex-column gap-6">
+                <div class="hstack justify-content-between border-bottom pb-6">
+                  <p class="mb-0 fs-5 text-dark">Menu</p>
+                  <button type="button" class="btn-close opacity-75" aria-label="Close"></button>
+                </div>
+                <div class="d-flex flex-column gap-3">
+                  <ul class="header-menu list-unstyled mb-0 d-flex flex-column gap-2">
+                    <li class="header-item">
+                      <a href="index.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Home
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="mission-vision.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Mission & Vision
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="our-history.html" aria-current="true" class="header-link active hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Our History
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="Governance.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Governance
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="Collaborations.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Collaborations
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="contact.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Contact Us
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="Careere.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Careers
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="d-flex flex-column gap-2">
+                  <a class="d-flex align-items-center gap-2 text-dark text-decoration-none" href="tel:+92012345678">
+                    <iconify-icon icon="solar:phone-bold" class="text-primary"></iconify-icon>
+                    <span>+92 012 345 6789</span>
+                  </a>
+                  <a class="d-flex align-items-center gap-2 fs-7 text-dark fw-bold text-decoration-none" href="mailto:info@pdhhealthcare.com">
+                    <iconify-icon icon="solar:letter-bold" class="text-primary"></iconify-icon>
+                    <span>info@pdhhealthcare.com</span>
+                  </a>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       PAGE WRAPPER — REDESIGNED BODY
+  ═══════════════════════════════════════════ -->
+  <div class="page-wrapper overflow-hidden">
+
+    <!-- ── HERO BANNER ── -->
+    <section class="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
+      style="background-image: url(../assets/images/backgrounds/History\ bannar.jpg); min-height: 600px;">
+      <div class="container pb-5 pb-xl-10">
+        <div class="d-flex flex-column gap-3 position-relative" style="z-index:2;">
+
+          <div class="banner-eyebrow">
+            <span class="dot"></span>
+            PDH Healthcare &nbsp;·&nbsp; Est. 1948
+          </div>
+
+          <h1 class="banner-title">
+            Our <span>History</span>
+          </h1>
+
+          <p class="banner-subtitle">
+            A legacy of <strong style="color:var(--pdh-green);">excellence</strong>, innovation,
+            and trusted healthcare — shaping Pakistan since 1948.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STATS BAR ── -->
+    <div class="stats-bar">
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-num">1948</div>
+          <div class="stat-lbl">Year Founded</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">75+</div>
+          <div class="stat-lbl">Years of Excellence</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">First</div>
+          <div class="stat-lbl">Healthcare Pioneer in Pakistan</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION INTRO ── -->
+    <div class="history-intro">
+      <div class="container text-center">
+        <div class="intro-tag">
+          <div class="intro-tag-line"></div>
+          <span>Our Journey</span>
+          <div class="intro-tag-line"></div>
+        </div>
+        <h2 class="intro-heading">
+          The PDH Healthcare <em>Journey</em>
+        </h2>
+        <p class="intro-text">
+          From pioneering Pakistan's first structured healthcare solutions in 1948 to becoming a trusted leader in modern healthcare delivery, our journey is defined by innovation, integrity, and an unwavering commitment to improving lives.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── TIMELINE ── -->
+    <section class="timeline-wrap">
+      <div class="tl-container">
+        <div class="tl-spine"></div>
+
+        <!-- ── 1: Foundation ── -->
+        <div class="milestone">
+          <!-- LEFT: Card -->
+          <div class="milestone-card">
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <div class="card-title">Foundation &amp; Vision</div>
+            <p class="card-body">
+              PDH Healthcare was established in 1948 with a pioneering vision to transform healthcare accessibility in Pakistan. As the nation's first structured healthcare initiative, we laid our foundation on trust, ethical practices, and patient-centric solutions — introducing modern, reliable, and sustainable practices that would shape the industry for decades to come.
+            </p>
+          </div>
+
+          <!-- CENTER -->
+          <div class="milestone-center">
+            <div class="milestone-node">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"/></svg>
+            </div>
+            <div class="milestone-badge">1948–1960s</div>
+          </div>
+
+          <!-- RIGHT: Image -->
+          <div class="milestone-img-wrap">
+            <img src="../assets/images/resources/1948.jpg" alt="PDH Foundation 1948">
+          </div>
+        </div>
+
+        <!-- ── 2: Legacy ── -->
+        <div class="milestone">
+          <!-- LEFT: Image -->
+          <div class="milestone-img-wrap">
+            <img src="../assets/images/resources/resources-1.jpg" alt="PDH Legacy">
+          </div>
+
+          <!-- CENTER -->
+          <div class="milestone-center">
+            <div class="milestone-node">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div class="milestone-badge">The Legacy</div>
+          </div>
+
+          <!-- RIGHT: Card -->
+          <div class="milestone-card">
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div class="card-title">The Origin, The Legacy, The Leader</div>
+            <p class="card-body">
+              Founded in 1948, PDH wasn't just one of the first — it was <strong>the first</strong> to introduce structured healthcare solutions to Pakistan. From that singular vision was born what the world knows today as The PDH Group — but PDH Healthcare remains the root, the backbone, and the only branch still powered by the founding generation itself.
+            </p>
+          </div>
+        </div>
+
+        <!-- ── 3: Evolution ── -->
+        <div class="milestone">
+          <div class="milestone-card">
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div class="card-title">Evolution</div>
+            <p class="card-body">
+              With a relentless focus on innovation and quality, PDH Healthcare evolved into a comprehensive healthcare organization. By adopting international best practices, advanced medical technologies, and global benchmarks, we steadily strengthened our service portfolio — reflecting our strategic shift toward integrated healthcare solutions designed to meet Pakistan's dynamic needs.
+            </p>
+          </div>
+          <div class="milestone-center">
+            <div class="milestone-node">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div class="milestone-badge">1970s–1980s</div>
+          </div>
+          <div class="milestone-img-wrap">
+            <img src="../assets/images/resources/resources-1.jpg" alt="PDH Evolution">
+          </div>
+        </div>
+
+        <!-- ── 4: Expansion ── -->
+        <div class="milestone">
+          <div class="milestone-img-wrap">
+            <img src="../assets/images/resources/resources-1.jpg" alt="PDH Expansion">
+          </div>
+          <div class="milestone-center">
+            <div class="milestone-node">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div class="milestone-badge">1990s</div>
+          </div>
+          <div class="milestone-card">
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div class="card-title">Expansion</div>
+            <p class="card-body">
+              As confidence in PDH Healthcare's capabilities grew, we expanded our footprint across Pakistan. Through strategic partnerships, robust infrastructure development, and a growing network of healthcare services, PDH Healthcare successfully reached wider populations — firmly establishing us as a trusted name in consumer healthcare, diagnostics, and comprehensive medical solutions nationwide.
+            </p>
+          </div>
+        </div>
+
+        <!-- ── 5: Diversification ── -->
+        <div class="milestone">
+          <div class="milestone-card">
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1h-4a1 1 0 01-1-1v-3z"/></svg>
+            </div>
+            <div class="card-title">Diversification</div>
+            <p class="card-body">
+              Driven by an ambitious vision to become a holistic healthcare provider, PDH Healthcare diversified into multiple specialized segments — from consumer healthcare products to specialized medical services. Each initiative was guided by stringent quality assurance, regulatory compliance, and unwavering patient safety standards, ensuring seamless continuity of care across diverse health needs.
+            </p>
+          </div>
+          <div class="milestone-center">
+            <div class="milestone-node">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1V5z"/></svg>
+            </div>
+            <div class="milestone-badge">2000s</div>
+          </div>
+          <div class="milestone-img-wrap">
+            <img src="../assets/images/resources/resources-1.jpg" alt="PDH Diversification">
+          </div>
+        </div>
+
+        <!-- ── 6: Innovation ── -->
+        <div class="milestone">
+          <div class="milestone-img-wrap">
+            <img src="../assets/images/resources/resources-1.jpg" alt="PDH Innovation">
+          </div>
+          <div class="milestone-center">
+            <div class="milestone-node">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            </div>
+            <div class="milestone-badge">2010s</div>
+          </div>
+          <div class="milestone-card">
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            </div>
+            <div class="card-title">Innovation &amp; Leadership</div>
+            <p class="card-body">
+              Innovation became the defining cornerstone of PDH Healthcare's identity. By leveraging cutting-edge research, advanced technology, and data-driven insights, we introduced modern healthcare practices aligned with global standards — earning recognition for our commitment to excellence and our instrumental role in strengthening Pakistan's healthcare ecosystem.
+            </p>
+          </div>
+        </div>
+
+        <!-- ── 7: Augmentation ── -->
+        <div class="milestone">
+          <div class="milestone-card">
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+            <div class="card-title">Augmentation</div>
+            <p class="card-body">
+              PDH Healthcare continues to invest strategically in capacity building, highly skilled professionals, and state-of-the-art infrastructure. Through continuous training, advanced system optimization, and comprehensive service augmentation, we consistently raise industry benchmarks — while maintaining our hallmark compassionate, patient-focused care that has defined us for over seven decades.
+            </p>
+          </div>
+          <div class="milestone-center">
+            <div class="milestone-node">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+            <div class="milestone-badge">Present</div>
+          </div>
+          <div class="milestone-img-wrap">
+            <img src="../assets/images/resources/resources-1.jpg" alt="PDH Today">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── LEGACY BANNER ── -->
+    <section class="legacy-banner">
+      <div class="legacy-inner">
+        <div class="legacy-orn">
+          <div class="legacy-orn-line"></div>
+          <div class="legacy-orn-icons">
+            <div class="legacy-orn-dot"></div>
+            <div class="legacy-orn-dot"></div>
+            <div class="legacy-orn-dot"></div>
+          </div>
+          <div class="legacy-orn-line"></div>
+        </div>
+
+        <div class="legacy-quote-mark">"</div>
+
+        <p class="legacy-text">
+          For over 75 years, PDH Healthcare has remained steadfast in its mission to deliver world-class healthcare solutions. Our journey from Pakistan's pioneering healthcare initiative to a trusted industry leader reflects our unwavering dedication to innovation, integrity, and the wellbeing of every individual we serve.
+        </p>
+
+        <div class="legacy-label">
+          The PDH Healthcare Legacy Continues
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <!-- END PAGE WRAPPER -->
+
+  <!-- ═══════════════════════════════════════════
+       ORIGINAL FOOTER — UNTOUCHED
+  ═══════════════════════════════════════════ -->
+  <footer class="footer bg-dark py-5 py-lg-11 py-xl-12">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-5 mb-8 mb-xl-0">
+          <div class="d-flex flex-column gap-8 pe-xl-5">
+            <h2 class="mb-0 text-white">Build something together?</h2>
+            <div class="d-flex flex-column gap-2">
+              <a href="mailto:info@pdhhealtcare.com" class="link-hover hstack gap-3 text-white fs-5">
+                <iconify-icon icon="lucide:arrow-up-right" class="fs-7 text-primary"></iconify-icon>
+                info@pdhhealtcare.com
+              </a>
+              <a href="https://maps.app.goo.gl/hpDp81fqzGt5y4bC8" target="_blank"
+                class="link-hover hstack gap-3 text-white fs-5">
+                <iconify-icon icon="lucide:map-pin" class="fs-7 text-primary"></iconify-icon>
+                Visit Our Location
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
+          <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
+            <li><a class="link-hover fs-5 text-white" href="index.html">Home</a></li>
+            <li><a class="link-hover fs-5 text-white" href="about-us.html">About</a></li>
+            <li><a class="link-hover fs-5 text-white" href="projects.html">Work</a></li>
+            <li><a class="link-hover fs-5 text-white" href="terms-and-conditions.html">Terms</a></li>
+            <li><a class="link-hover fs-5 text-white" href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
+          <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
+            <li><a class="link-hover fs-5 text-white" href="#!">Facebook</a></li>
+            <li><a class="link-hover fs-5 text-white" href="#!">Instagram</a></li>
+            <li><a class="link-hover fs-5 text-white" href="#!">Twitter</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-xl-3 mb-8 mb-xl-0">
+          <p class="mb-0 text-white text-opacity-70 text-md-end">© PDH Healthcare 2025</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="get-template hstack gap-2">
+    <button class="btn bg-primary p-2 round-52 rounded-circle hstack justify-content-center flex-shrink-0"
+      id="scrollToTopBtn">
+      <iconify-icon icon="lucide:arrow-up" class="fs-7 text-dark"></iconify-icon>
+    </button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════════════ -->
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../assets/libs/aos-master/dist/aos.js"></script>
+  <script src="../assets/js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
+  <script>
+    // AOS
+    if (typeof AOS !== 'undefined') {
+      AOS.init({ duration: 1000, once: true, offset: 100 });
+    }
+
+    // Scroll-triggered milestone animations
+    const milestones = document.querySelectorAll('.milestone');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    milestones.forEach(m => io.observe(m));
+
+    // Scroll to top
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    if (scrollToTopBtn) {
+      window.addEventListener('scroll', () => {
+        scrollToTopBtn.style.opacity = window.pageYOffset > 300 ? '1' : '0';
+        scrollToTopBtn.style.pointerEvents = window.pageYOffset > 300 ? 'auto' : 'none';
+      });
+      scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
+</body>
+</html>

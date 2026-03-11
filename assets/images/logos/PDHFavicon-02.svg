@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #00a44f;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke-miterlimit: 2.61;
+        stroke-width: .61px;
+      }
+
+      .cls-4 {
+        fill: #00a44f;
+      }
+
+      .cls-4, .cls-5, .cls-6, .cls-7 {
+        fill-rule: evenodd;
+      }
+
+      .cls-8 {
+        letter-spacing: .06em;
+      }
+
+      .cls-2 {
+        stroke: #f05a24;
+      }
+
+      .cls-5, .cls-9 {
+        fill: #fff;
+      }
+
+      .cls-6 {
+        fill: #f05a24;
+      }
+
+      .cls-3 {
+        stroke: #28aae1;
+      }
+
+      .cls-10 {
+        letter-spacing: -.19em;
+      }
+
+      .cls-7 {
+        fill: #28aae1;
+      }
+
+      .cls-11 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-9 {
+        font-family: ArchivoBlack-Regular, 'Archivo Black';
+        font-size: 4.65px;
+      }
+
+      .cls-12 {
+        letter-spacing: .02em;
+      }
+    </style>
+  </defs>
+  <g>
+    <polygon class="cls-4" points="36.85 24.68 26.99 3 23.98 5.22 36.85 24.68"/>
+    <polygon class="cls-1" points="36.85 24.68 26.99 3 23.98 5.22 36.85 24.68"/>
+    <polygon class="cls-6" points="14.95 33.16 38.6 33.99 38.47 29.82 14.95 33.16"/>
+    <polygon class="cls-2" points="14.95 33.16 38.6 33.99 38.47 29.82 14.95 33.16"/>
+    <polygon class="cls-7" points="21.75 9.7 9.4 30 12.4 32.24 21.75 9.7"/>
+    <polygon class="cls-3" points="21.75 9.7 9.4 30 12.4 32.24 21.75 9.7"/>
+    <path class="cls-5" d="M22.97,17.9h1.01c.29,0,.53.28.53.62v1.2c0,.34-.24.62-.53.62h-1.01c-.29,0-.53-.28-.53-.62v-1.2c0-.34.24-.62.53-.62M20.51,15.95h4.4c.75,0,1.37.73,1.37,1.62v3.23c0,.89-.61,1.62-1.37,1.62h-2.44v6.84h-1.97v-13.3Z"/>
+    <path class="cls-5" d="M26.34,27.31h-1.01c-.29,0-.53-.28-.53-.62v-1.19c0-.34.24-.62.53-.62h1.01c.29,0,.53.28.53.62v1.19c0,.34-.24.62-.53.62M28.8,29.26h-4.4c-.75,0-1.37-.73-1.37-1.62v-3.23c0-.89.62-1.62,1.37-1.62h1.82c.39,0,.63-.3.62-.74v-6.1h1.97v7.06h2.62c.62,0,1.12.6,1.12,1.33v4.91h-1.75v-4.1c0-.11-.08-.21-.18-.21h-1.79s-.02,0-.02,0v4.31Z"/>
+  </g>
+  <text class="cls-9" transform="translate(3 39.62) scale(.94 1)"><tspan class="cls-10" x="0" y="0">P</tspan><tspan x="2.48" y="0">.</tspan><tspan class="cls-11" x="4.03" y="0">D</tspan><tspan x="7.57" y="0">.H.</tspan><tspan class="cls-8" x="14.54" y="0"> </tspan><tspan x="16.36" y="0">Healthca</tspan><tspan class="cls-12" x="39.35" y="0">r</tspan><tspan x="41.48" y="0">e</tspan></text>
+  <text class="cls-9" transform="translate(10.64 44.08) scale(.94 1)"><tspan x="0" y="0">Since 1948</tspan></text>
+</svg>

@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | PDH Healthcare</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/FaviconPDH-02.svg" />
+  <link rel="stylesheet" href="../assets/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../assets/libs/aos-master/dist/aos.css">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  
+  <style>
+    :root {
+      --primary-color: #006b6e;
+      --secondary-color: #008b8e;
+      --accent-color: #00a5a8;
+      --dark-color: #003638;
+      --light-teal: #e6f5f5;
+      --white: #ffffff;
+      --gray-light: #f8f9fa;
+      --gray-dark: #6c757d;
+      --success-color: #28a745;
+      --error-color: #dc3545;
+    }
+
+    /* Override primary colors */
+    .bg-primary {
+      background-color: var(--primary-color) !important;
+    }
+
+    .text-primary {
+      color: var(--secondary-color) !important;
+    }
+
+    .border-primary {
+      border-color: var(--primary-color) !important;
+    }
+
+    /* Contact Cards Section */
+    .contact-info-cards {
+      margin-top: -80px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .contact-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 40px rgba(0, 107, 110, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 107, 110, 0.1);
+      height: 100%;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0, 107, 110, 0.2);
+      border-color: var(--secondary-color);
+    }
+
+    .contact-card-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover .contact-card-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .contact-card-icon iconify-icon {
+      font-size: 32px;
+      color: var(--white);
+    }
+
+    .contact-card h4 {
+      color: var(--primary-color);
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .contact-card p {
+      color: var(--gray-dark);
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .contact-card a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    /* Form Improvements */
+    .contact-form-wrapper {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 10px 40px rgba(0, 107, 110, 0.08);
+    }
+
+    .form-control {
+      border: none;
+      border-bottom: 2px solid #e0e0e0;
+      border-radius: 0;
+      padding: 15px 0;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+
+    .form-control:focus {
+      border-bottom-color: var(--secondary-color);
+      box-shadow: none;
+      outline: none;
+      background: transparent;
+    }
+
+    .form-control::placeholder {
+      color: var(--gray-dark);
+      opacity: 0.7;
+    }
+
+    .form-label {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      border: none;
+      padding: 18px 40px;
+      border-radius: 50px;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 107, 110, 0.3);
+    }
+
+    .submit-btn:active {
+      transform: translateY(-1px);
+    }
+
+    .submit-btn .btn-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover .btn-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Alert Messages */
+    .alert-custom {
+      border-radius: 12px;
+      padding: 15px 20px;
+      border: none;
+      display: none;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .alert-success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .alert-error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    /* Map Section */
+    .map-wrapper {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 107, 110, 0.1);
+      height: 450px;
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+
+    /* Scroll to Top Button */
+    #scrollToTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0, 107, 110, 0.3);
+      z-index: 999;
+    }
+
+    #scrollToTopBtn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 107, 110, 0.4);
+    }
+
+    #scrollToTopBtn iconify-icon {
+      color: var(--white);
+      font-size: 24px;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-form-wrapper {
+        padding: 30px 20px;
+      }
+
+      .contact-card {
+        padding: 30px 20px;
+        margin-bottom: 20px;
+      }
+
+      .banner-section {
+        min-height: 400px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    /* Form validation styles */
+    .form-control.is-invalid {
+      border-bottom-color: var(--error-color);
+    }
+
+    .form-control.is-valid {
+      border-bottom-color: var(--success-color);
+    }
+
+    .invalid-feedback {
+      color: var(--error-color);
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    /* Loading state */
+    .submit-btn.loading {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .submit-btn.loading::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 3px solid var(--white);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      right: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+   <!-- Header -->
+  <header class="header border-4 border-primary border-top position-fixed start-0 top-0 w-100">
+    <div class="container">
+      <div class="header-wrapper d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <a href="index.html" class="logo-white">
+            <img src="../assets/images/logos/PDH.svg" alt="logo" class="img-fluid" style="width:100px;">
+          </a>
+          <a href="index.html" class="logo-dark">
+            <img src="../assets/images/logos/PDH.svg" alt="logo" class="img-fluid" style="width:75px;">
+          </a>
+        </div>
+        <div class="d-flex align-items-center gap-4">
+          <div class="btn-group">
+            <button
+              class="btn btn-secondary toggle-menu round-45 p-2 d-flex align-items-center justify-content-center bg-white rounded-circle"
+              type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+              <iconify-icon icon="solar:hamburger-menu-line-duotone" class="menu-icon fs-8 text-dark"></iconify-icon>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end p-4">
+              <div class="d-flex flex-column gap-6">
+                <div class="hstack justify-content-between border-bottom pb-6">
+                  <p class="mb-0 fs-5 text-dark">Menu</p>
+                  <button type="button" class="btn-close opacity-75" aria-label="Close"></button>
+                </div>
+                <div class="d-flex flex-column gap-3">
+                  <ul class="header-menu list-unstyled mb-0 d-flex flex-column gap-2">
+                    <li class="header-item">
+                      <a href="index.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Home
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="mission-vision.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Mission & Vision
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="our-history.html" aria-current="true" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Our History
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="Governance.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Governance
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="Collaborations.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Collaborations
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="contact.html" class="header-link active hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Contact Us
+                      </a>
+                    </li>
+                    <li class="header-item">
+                      <a href="Careere.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark">
+                        <img src="../assets/images/logos/PDH_Menu.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Careers
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="d-flex flex-column gap-2">
+                  <a class="d-flex align-items-center gap-2 text-dark text-decoration-none" href="tel:+92012345678">
+                    <iconify-icon icon="solar:phone-bold" class="text-primary"></iconify-icon>
+                    <span>+92 012 345 6789</span>
+                  </a>
+
+                  <a class="d-flex align-items-center gap-2 fs-7 text-dark fw-bold text-decoration-none" href="mailto:info@pdhhealthcare.com">
+                    <iconify-icon icon="solar:letter-bold" class="text-primary"></iconify-icon>
+                    <span>info@pdhhealthcare.com</span>
+                  </a>
+                </div>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!--  Page Wrapper -->
+  <div class="page-wrapper overflow-hidden">
+
+    <!--  Banner Section -->
+    <section class="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-center"
+      style="background-image: url(../assets/images/backgrounds/333.jpg);">
+      <div class="container">
+        <div class="d-flex flex-column gap-4 py-5 position-relative z-1">
+          <div class="row align-items-center">
+            <div class="col-xl-8">
+              <div class="d-flex align-items-center gap-4 mb-4" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                <img src="../assets/images/logos/PDH_Menu.svg" alt="" class="img-fluid animate-spin" style="width: 50px;">
+                <p class="mb-0 text-white fs-5">Ready to <span class="text-white fw-bold">start something great?</span> Reach out — we'd love to hear from you.</p>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+            <h1 class="mb-0 display-3 text-white fw-bold">Contact Us</h1>
+            <div class="p-2 ps-6 bg-white rounded-pill">
+              <span class="bg-primary round-52 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                <iconify-icon icon="lucide:arrow-up-right" class="fs-7 text-white"></iconify-icon>
+              </span>
+            </div>
+          </div>
+          <p class="text-white text-opacity-90 fs-5 mb-0 col-xl-7" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+            Whether you have a question, need support, or want to discuss a partnership, our team is here to help. Let's connect!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Info Cards -->
+    <section class="contact-info-cards">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+            <div class="contact-card text-center">
+              <div class="contact-card-icon mx-auto">
+                <iconify-icon icon="solar:phone-bold-duotone"></iconify-icon>
+              </div>
+              <h4>Call Us</h4>
+              <p class="mb-3">Available Monday to Friday<br>9:00 AM - 6:00 PM</p>
+              <a href="tel:+92012345678" class="fs-5">+92 012 345 6789</a>
+            </div>
+          </div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+            <div class="contact-card text-center">
+              <div class="contact-card-icon mx-auto">
+                <iconify-icon icon="solar:letter-bold-duotone"></iconify-icon>
+              </div>
+              <h4>Email Us</h4>
+              <p class="mb-3">Get in touch via email<br>We'll respond within 24 hours</p>
+              <a href="mailto:info@pdhhealthcare.com" class="fs-5">info@pdhhealthcare.com</a>
+            </div>
+          </div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+            <div class="contact-card text-center">
+              <div class="contact-card-icon mx-auto">
+                <iconify-icon icon="solar:map-point-bold-duotone"></iconify-icon>
+              </div>
+              <h4>Visit Us</h4>
+              <p class="mb-3">PDH Healthcare Head Office<br>Lahore, Pakistan</p>
+              <a href="https://maps.app.goo.gl/KRVnn2QWR5Y2WikX6" target="_blank" class="fs-5">Get Directions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--  Get in touch Section -->
+    <section class="get-in-touch py-5 py-lg-11 py-xl-12">
+      <div class="container">
+        <div class="row justify-content-between align-items-start g-5">
+          <!-- Left Side - Info -->
+          <div class="col-lg-4">
+            <div class="sticky-top" style="top: 100px;">
+              <div class="d-flex align-items-center gap-3 mb-4" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1000">
+                <span class="section-badge">Let's Connect</span>
+              </div>
+              <h2 class="section-title mb-4" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+                Get in Touch
+              </h2>
+              <p class="mb-4 fs-5 text-muted" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000">
+                Let's collaborate and create something amazing! Tell us about your project — we're all ears and ready to help bring your vision to life.
+              </p>
+              
+              <div class="d-flex flex-column gap-3 mt-5" data-aos="fade-right" data-aos-delay="400" data-aos-duration="1000">
+                <h5 class="mb-3" style="color: var(--primary-color);">Follow Us</h5>
+                <div class="d-flex gap-3">
+                  <a href="#!" class="btn btn-outline-primary rounded-circle p-3" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <iconify-icon icon="mdi:facebook" class="fs-5"></iconify-icon>
+                  </a>
+                  <a href="#!" class="btn btn-outline-primary rounded-circle p-3" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <iconify-icon icon="mdi:instagram" class="fs-5"></iconify-icon>
+                  </a>
+                  <a href="#!" class="btn btn-outline-primary rounded-circle p-3" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <iconify-icon icon="mdi:twitter" class="fs-5"></iconify-icon>
+                  </a>
+                  <a href="#!" class="btn btn-outline-primary rounded-circle p-3" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <iconify-icon icon="mdi:linkedin" class="fs-5"></iconify-icon>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side - Form -->
+          <div class="col-lg-7">
+            <div class="contact-form-wrapper" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+              <!-- Alert Messages -->
+              <div id="successAlert" class="alert-custom alert-success mb-4">
+                <iconify-icon icon="solar:check-circle-bold" class="fs-5 me-2"></iconify-icon>
+                <span>Thank you! Your message has been sent successfully.</span>
+              </div>
+              <div id="errorAlert" class="alert-custom alert-error mb-4">
+                <iconify-icon icon="solar:close-circle-bold" class="fs-5 me-2"></iconify-icon>
+                <span>Oops! Something went wrong. Please try again.</span>
+              </div>
+
+              <form id="contactForm" class="d-flex flex-column gap-4" novalidate>
+                <div class="row g-4">
+                  <div class="col-md-6">
+                    <label for="firstName" class="form-label">First Name *</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="John" required>
+                    <div class="invalid-feedback">Please enter your first name.</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="lastName" class="form-label">Last Name *</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Doe" required>
+                    <div class="invalid-feedback">Please enter your last name.</div>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="email" class="form-label">Email Address *</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="john.doe@example.com" required>
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+
+                <div>
+                  <label for="phone" class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" id="phone" name="phone" placeholder="+92 300 1234567">
+                </div>
+
+                <div>
+                  <label for="subject" class="form-label">Subject *</label>
+                  <input type="text" class="form-control" id="subject" name="subject" placeholder="What is this regarding?" required>
+                  <div class="invalid-feedback">Please enter a subject.</div>
+                </div>
+
+                <div>
+                  <label for="message" class="form-label">Message *</label>
+                  <textarea class="form-control" id="message" name="message" placeholder="Tell us about your project or inquiry..." rows="5" required></textarea>
+                  <div class="invalid-feedback">Please enter your message.</div>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                  <label class="form-check-label text-muted" for="agreeTerms">
+                    I agree to the <a href="terms-and-conditions.html" class="text-primary">Terms & Conditions</a> and <a href="privacy-policy.html" class="text-primary">Privacy Policy</a>
+                  </label>
+                  <div class="invalid-feedback">You must agree before submitting.</div>
+                </div>
+
+                <button type="submit" class="submit-btn w-100">
+                  <span class="btn-text">Send Message</span>
+                  <span class="btn-icon">
+                    <iconify-icon icon="lucide:arrow-up-right" class="fs-6" style="color: var(--primary-color);"></iconify-icon>
+                  </span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section py-5 py-lg-11">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+          <span class="section-badge mb-3">Find Us</span>
+          <h2 class="section-title">Our Location</h2>
+          <p class="text-muted fs-5">Visit us at our office in Lahore, Pakistan</p>
+        </div>
+        <div class="map-wrapper" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.5378793806897!2d74.35731831512434!3d31.518752981370674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391904e5c47eafab%3A0xf5f0d2e0a5e5a5e5!2sLahore%2C%20Pakistan!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark py-5 py-lg-11 py-xl-12">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-5 mb-8 mb-xl-0">
+          <div class="d-flex flex-column gap-8 pe-xl-5">
+            <h2 class="mb-0 text-white">Build something together?</h2>
+            <div class="d-flex flex-column gap-2">
+              <a href="https://www.pdhhealthcare.com/" target="_blank" class="link-hover hstack gap-3 text-white fs-5">
+                <iconify-icon icon="lucide:arrow-up-right" class="fs-7 text-primary"></iconify-icon>
+                info@pdhhealthcare.com
+              </a>
+              <a href="https://maps.app.goo.gl/hpDp81fqzGt5y4bC8" target="_blank"
+                class="link-hover hstack gap-3 text-white fs-5">
+                <iconify-icon icon="lucide:map-pin" class="fs-7 text-primary"></iconify-icon>
+                Head Office: 57-D ModelTown Lahore, Pakistan
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
+          <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
+            <li><a class="link-hover fs-5 text-white" href="index.html">Home</a></li>
+            <li><a class="link-hover fs-5 text-white" href="about-us.html">About</a></li>
+            <!--<li><a class="link-hover fs-5 text-white" id="services" href="#services">Services</a></li>
+            <li><a class="link-hover fs-5 text-white" href="projects.html">Work</a></li>-->
+            <li><a class="link-hover fs-5 text-white" href="terms-and-conditions.html">Terms</a></li>
+            <li><a class="link-hover fs-5 text-white" href="privacy-policy.html">Privacy Policy</a></li>
+            <!--<li><a class="link-hover fs-5 text-white" href="404.html">Error 404</a></li>-->
+          </ul>
+        </div>
+        <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
+          <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
+            <li><a class="link-hover fs-5 text-white" href="#!">Facebook</a></li>
+            <li><a class="link-hover fs-5 text-white" href="#!">Instagram</a></li>
+            <li><a class="link-hover fs-5 text-white" href="#!">Twitter</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-xl-3 mb-8 mb-xl-0">
+          <p class="mb-0 text-white text-opacity-70 text-md-end">© PDH Healthcare copyright 2025</p>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTopBtn" aria-label="Scroll to top">
+    <iconify-icon icon="lucide:arrow-up"></iconify-icon>
+  </button>
+
+  <!-- Scripts -->
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../assets/libs/aos-master/dist/aos.js"></script>
+  <script src="../assets/js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+
+    // Scroll to Top functionality
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.style.display = 'flex';
+      } else {
+        scrollToTopBtn.style.display = 'none';
+      }
+      
+      // Add scrolled class to header
+      const header = document.querySelector('.header');
+      if (window.pageYOffset > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Form Validation and Submission
+    const contactForm = document.getElementById('contactForm');
+    const successAlert = document.getElementById('successAlert');
+    const errorAlert = document.getElementById('errorAlert');
+
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      // Hide alerts
+      successAlert.style.display = 'none';
+      errorAlert.style.display = 'none';
+
+      // Remove all validation classes
+      const inputs = contactForm.querySelectorAll('.form-control, .form-check-input');
+      inputs.forEach(input => {
+        input.classList.remove('is-invalid', 'is-valid');
+      });
+
+      // Check form validity
+      if (contactForm.checkValidity() === false) {
+        // Add invalid class to invalid fields
+        inputs.forEach(input => {
+          if (!input.checkValidity()) {
+            input.classList.add('is-invalid');
+          }
+        });
+        contactForm.classList.add('was-validated');
+        return;
+      }
+
+      // Add valid class to all fields
+      inputs.forEach(input => {
+        if (input.checkValidity()) {
+          input.classList.add('is-valid');
+        }
+      });
+
+      // Simulate form submission (replace with actual submission logic)
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+
+      // Simulate API call
+      setTimeout(function() {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+
+        // Show success message
+        successAlert.style.display = 'flex';
+        
+        // Reset form
+        contactForm.reset();
+        contactForm.classList.remove('was-validated');
+        inputs.forEach(input => {
+          input.classList.remove('is-valid');
+        });
+
+        // Scroll to success message
+        successAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+        // Hide success message after 5 seconds
+        setTimeout(function() {
+          successAlert.style.display = 'none';
+        }, 5000);
+
+        // In production, replace the setTimeout above with actual form submission:
+        /*
+        const formData = new FormData(contactForm);
+        fetch('your-api-endpoint', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          submitBtn.classList.remove('loading');
+          submitBtn.disabled = false;
+          successAlert.style.display = 'flex';
+          contactForm.reset();
+        })
+        .catch(error => {
+          submitBtn.classList.remove('loading');
+          submitBtn.disabled = false;
+          errorAlert.style.display = 'flex';
+        });
+        */
+      }, 2000);
+    });
+
+    // Real-time validation
+    const formInputs = contactForm.querySelectorAll('.form-control, .form-check-input');
+    formInputs.forEach(input => {
+      input.addEventListener('blur', function() {
+        if (contactForm.classList.contains('was-validated')) {
+          if (this.checkValidity()) {
+            this.classList.remove('is-invalid');
+            this.classList.add('is-valid');
+          } else {
+            this.classList.remove('is-valid');
+            this.classList.add('is-invalid');
+          }
+        }
+      });
+
+      input.addEventListener('input', function() {
+        if (this.classList.contains('is-invalid') || this.classList.contains('is-valid')) {
+          if (this.checkValidity()) {
+            this.classList.remove('is-invalid');
+            this.classList.add('is-valid');
+          } else {
+            this.classList.remove('is-valid');
+            this.classList.add('is-invalid');
+          }
+        }
+      });
+    });
+
+    // Close dropdown when clicking menu items
+    document.querySelectorAll('.dropdown-menu .header-link').forEach(link => {
+      link.addEventListener('click', function() {
+        const dropdown = bootstrap.Dropdown.getInstance(document.querySelector('.toggle-menu'));
+        if (dropdown) {
+          dropdown.hide();
+        }
+      });
+    });
+
+    // Close dropdown when clicking close button
+    document.querySelector('.btn-close').addEventListener('click', function() {
+      const dropdown = bootstrap.Dropdown.getInstance(document.querySelector('.toggle-menu'));
+      if (dropdown) {
+        dropdown.hide();
+      }
+    });
+  </script>
+</body>
+
+</html>
