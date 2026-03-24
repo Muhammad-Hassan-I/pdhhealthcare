@@ -67,7 +67,6 @@
       border-top-color: var(--pdh-orange);
     }
 
-    /* Mission card — orange top, Vision card — blue top */
     .mv-card.mission { border-top-color: var(--pdh-orange); }
     .mv-card.vision  { border-top-color: var(--pdh-blue); }
     .mv-card.mission:hover { border-top-color: var(--pdh-green); }
@@ -172,7 +171,6 @@
       border-radius: 20px 20px 0 0;
     }
 
-    /* Each value card gets a different top color */
     .value-card:nth-child(1)::before { background: var(--pdh-orange); }
     .value-card:nth-child(2)::before { background: var(--pdh-green); }
     .value-card:nth-child(3)::before { background: var(--pdh-blue); }
@@ -199,7 +197,6 @@
       transition: all 0.3s ease;
     }
 
-    /* Each icon gets its own color */
     .col-md-6:nth-child(1) .value-icon { background: linear-gradient(135deg, var(--pdh-orange), var(--pdh-orange2)); box-shadow: 0 8px 20px rgba(240,90,36,0.25); }
     .col-md-6:nth-child(2) .value-icon { background: linear-gradient(135deg, var(--pdh-green), var(--pdh-green2)); box-shadow: 0 8px 20px rgba(0,164,79,0.25); }
     .col-md-6:nth-child(3) .value-icon { background: linear-gradient(135deg, var(--pdh-blue), var(--pdh-blue2)); box-shadow: 0 8px 20px rgba(40,170,225,0.25); }
@@ -237,7 +234,6 @@
       background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300a44f' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
 
-    /* colored glow blobs */
     .footprint-section::after {
       content: '';
       position: absolute;
@@ -416,7 +412,9 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── Responsive ── */
+    /* ═══════════════════════════════════════
+       RESPONSIVE — TABLET (991px)
+    ═══════════════════════════════════════ */
     @media (max-width: 991px) {
       .mv-card { padding: 2rem; margin-bottom: 2rem; }
       .section-title { font-size: 2rem; }
@@ -424,12 +422,317 @@
       .stat-number { font-size: 2.5rem; }
     }
 
+    /* ═══════════════════════════════════════
+       RESPONSIVE — MOBILE (767px)
+    ═══════════════════════════════════════ */
     @media (max-width: 767px) {
-      .mv-card { padding: 1.5rem; }
-      .mv-icon { width: 80px; height: 80px; }
-      .section-title { font-size: 1.75rem; }
-      .map-container { padding: 2rem 1.5rem; }
-      .regions-grid { grid-template-columns: 1fr 1fr; }
+
+      /* ── Banner Fix: heading + word-break ── */
+      .banner-section h1,
+      .banner-section .fs-16 {
+        font-size: 30px !important;
+        line-height: 1.15;
+        word-break: normal;
+        overflow-wrap: normal;
+        hyphens: none;
+        white-space: normal;
+      }
+      .banner-section .fs-5 {
+        font-size: 14px !important;
+      }
+      .banner-section .pb-5 {
+        padding-bottom: 1.5rem !important;
+      }
+      .banner-section .ps-7 {
+        padding-left: 1.5rem !important;
+      }
+      /* Make banner shorter on mobile */
+      .banner-inner-section {
+        min-height: 55vh !important;
+      }
+
+      /* ── Mission & Vision Cards ── */
+      .mv-card {
+        padding: 1.5rem;
+        border-radius: 16px;
+      }
+      .mv-icon {
+        width: 70px; height: 70px;
+        margin-bottom: 1.2rem;
+      }
+      .mv-icon iconify-icon { font-size: 2.2rem; }
+      .mv-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .mv-card p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+      .mv-card:hover {
+        transform: translateY(-4px);
+      }
+
+      /* ── Section Headers ── */
+      .section-title {
+        font-size: 1.6rem;
+      }
+      .section-title::after {
+        width: 60px;
+        height: 3px;
+      }
+      .section-subtitle {
+        font-size: 0.95rem;
+        margin-top: 1rem;
+      }
+      .section-header {
+        margin-bottom: 2.5rem;
+      }
+
+      /* ── Values Section ── */
+      .values-section {
+        padding: 3rem 0;
+      }
+      .value-card {
+        padding: 1.5rem;
+        border-radius: 14px;
+      }
+      .value-icon {
+        width: 60px; height: 60px;
+        margin-bottom: 1rem;
+      }
+      .value-icon iconify-icon { font-size: 1.8rem; }
+      .value-card h4 {
+        font-size: 1.15rem;
+        margin-bottom: 0.7rem;
+      }
+      .value-card p {
+        font-size: 0.88rem;
+        line-height: 1.6;
+      }
+      .value-card:hover {
+        transform: translateY(-4px);
+      }
+
+      /* ── Global Footprint ── */
+      .footprint-section {
+        padding: 3rem 0;
+      }
+      .footprint-stats {
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .stat-card {
+        min-width: calc(50% - 0.5rem);
+        flex: 1 1 calc(50% - 0.5rem);
+        padding: 1.5rem 1rem;
+        border-radius: 14px;
+      }
+      .stat-number {
+        font-size: 2rem;
+      }
+      .stat-label {
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+      }
+      .stat-description {
+        font-size: 0.75rem;
+        margin-top: 0.3rem;
+      }
+
+      /* ── Map Container ── */
+      .map-container {
+        padding: 1.5rem;
+        border-radius: 16px;
+        margin-top: 2rem;
+      }
+      .map-container h4 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+      .map-container > p,
+      .map-container .text-center {
+        font-size: 0.85rem !important;
+      }
+      .regions-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+      .region-item {
+        padding: 1rem;
+        border-radius: 10px;
+      }
+      .region-item iconify-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0.6rem;
+      }
+      .region-item h5 {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+      }
+      .region-item p {
+        font-size: 0.75rem;
+      }
+
+      /* ── About Image ── */
+      .about-img img {
+        height: 200px;
+        object-fit: cover;
+      }
+
+      /* ── Footer ── */
+      footer h2 {
+        font-size: 1.4rem !important;
+      }
+      footer .fs-5 {
+        font-size: 0.9rem !important;
+      }
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE — SMALL MOBILE (480px)
+    ═══════════════════════════════════════ */
+    @media (max-width: 480px) {
+
+      /* Banner */
+      .banner-section h1,
+      .banner-section .fs-16 {
+        font-size: 24px !important;
+      }
+      .banner-section .fs-5 {
+        font-size: 13px !important;
+      }
+      .banner-inner-section {
+        min-height: 50vh !important;
+      }
+
+      /* Mission Vision */
+      .mv-card {
+        padding: 1.2rem;
+      }
+      .mv-icon {
+        width: 60px; height: 60px;
+        margin-bottom: 1rem;
+      }
+      .mv-icon iconify-icon { font-size: 1.8rem; }
+      .mv-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+      }
+      .mv-card p {
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+
+      /* Section titles */
+      .section-title {
+        font-size: 1.4rem;
+      }
+      .section-subtitle {
+        font-size: 0.85rem;
+      }
+      .section-header {
+        margin-bottom: 2rem;
+      }
+
+      /* Values */
+      .values-section {
+        padding: 2.5rem 0;
+      }
+      .value-card {
+        padding: 1.2rem;
+      }
+      .value-icon {
+        width: 50px; height: 50px;
+        margin-bottom: 0.8rem;
+      }
+      .value-icon iconify-icon { font-size: 1.5rem; }
+      .value-card h4 {
+        font-size: 1.05rem;
+      }
+      .value-card p {
+        font-size: 0.82rem;
+      }
+
+      /* Stats */
+      .stat-card {
+        min-width: calc(50% - 0.5rem);
+        padding: 1.2rem 0.8rem;
+      }
+      .stat-number {
+        font-size: 1.7rem;
+      }
+      .stat-label {
+        font-size: 0.7rem;
+      }
+      .stat-description {
+        font-size: 0.68rem;
+      }
+
+      /* Map */
+      .map-container {
+        padding: 1.2rem;
+      }
+      .map-container h4 {
+        font-size: 1.1rem;
+      }
+      .regions-grid {
+        gap: 0.6rem;
+      }
+      .region-item {
+        padding: 0.8rem;
+      }
+      .region-item iconify-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.4rem;
+      }
+      .region-item h5 {
+        font-size: 0.8rem;
+      }
+      .region-item p {
+        font-size: 0.7rem;
+      }
+
+      /* Footprint section */
+      .footprint-section {
+        padding: 2.5rem 0;
+      }
+
+      /* About image */
+      .about-img img {
+        height: 160px;
+      }
+
+      /* Footer */
+      footer h2 {
+        font-size: 1.2rem !important;
+      }
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE — VERY SMALL (360px)
+    ═══════════════════════════════════════ */
+    @media (max-width: 360px) {
+      .banner-section h1,
+      .banner-section .fs-16 {
+        font-size: 20px !important;
+      }
+      .banner-section .fs-5 {
+        font-size: 12px !important;
+      }
+      .section-title {
+        font-size: 1.25rem;
+      }
+      .mv-card h3 {
+        font-size: 1.15rem;
+      }
+      .stat-number {
+        font-size: 1.5rem;
+      }
+      .regions-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -521,7 +824,7 @@
   <!-- ═══ PAGE WRAPPER ═══ -->
   <div class="page-wrapper overflow-hidden">
 
-    <!-- Banner Section — UNTOUCHED -->
+    <!-- Banner Section -->
     <section class="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
       style="background-image: url(../assets/images/backgrounds/Mandv.jpg);">
       <div class="container">
@@ -535,8 +838,9 @@
             </div>
           </div>
           <div class="d-flex align-items-end gap-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-            <h1 class="mb-0 fs-16 text-white lh-1">Mission & Vision</h1>
-            <a href="javascript:void(0)" class="p-1 ps-7 bg-primary rounded-pill">
+            <!-- FIXED: Added non-breaking space so "Healthcare" doesn't break into "Health care" -->
+            <h1 class="mb-0 fs-16 text-white lh-1" style="word-break: normal; overflow-wrap: normal;">Mission &amp;&nbsp;Vision</h1>
+            <a href="javascript:void(0)" class="p-1 ps-7 bg-primary rounded-pill flex-shrink-0">
               <span class="bg-white round-52 rounded-circle d-flex align-items-center justify-content-center">
                 <iconify-icon icon="lucide:arrow-up-right" class="fs-8 text-dark"></iconify-icon>
               </span>
@@ -638,7 +942,7 @@
       </div>
     </section>
 
-    <!-- About Img + Marquee — UNTOUCHED structure, color updated -->
+    <!-- About Img + Marquee -->
     <section class="about-img">
       <img src="../assets/images/backgrounds/Vision 01 jpg.jpg" alt="" class="w-100 object-fit-cover">
       <div class="marquee w-100 d-flex align-items-center overflow-hidden py-4" style="background: var(--pdh-green);">
