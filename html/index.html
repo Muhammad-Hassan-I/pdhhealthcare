@@ -55,7 +55,7 @@
     .section-body { font-size: 15px; line-height: 1.85; color: #4a6a55; max-width: 580px; }
 
     /* ═══════════════════════════════════════
-       STATS BAR — right below banner (NEW)
+       STATS BAR — right below banner
     ═══════════════════════════════════════ */
     .home-stats-bar { background: var(--dark); position: relative; overflow: hidden; }
 
@@ -97,10 +97,16 @@
     .hstat-box:hover::after { width: 60%; }
 
     .hstat-num {
-      font-size: clamp(2rem,3vw,2.8rem);
-      font-weight: 800; line-height: 1;
-      margin-bottom: .4rem; letter-spacing: -.03em;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.03em;
     }
+
+    /* FIXED: Removed ::after from .hstat-num — "+" is now handled inline in HTML
+       so "1948" doesn't get a "+" appended */
+
     .hstat-box:nth-child(1) .hstat-num { color: var(--orange); }
     .hstat-box:nth-child(2) .hstat-num { color: var(--green); }
     .hstat-box:nth-child(3) .hstat-num { color: var(--blue); }
@@ -241,7 +247,6 @@
 
     /* ═══════════════════════════════════════
        CEO / LEADERSHIP
-       ★ IMAGE AREA: FIXED HEIGHT, object-fit
     ═══════════════════════════════════════ */
     .ceo-section { background: var(--light); position: relative; overflow: hidden; }
 
@@ -266,23 +271,21 @@
       background: linear-gradient(90deg,var(--orange),var(--green),var(--blue)); z-index: 3;
     }
 
-    /* ── FIXED IMAGE AREA ── */
     .ceo-img-area {
       width: 100%;
-      height: 300px;               /* fixed height */
+      height: 300px;
       overflow: hidden;
       position: relative;
     }
     .ceo-img-area img {
       width: 100%; height: 100%;
-      object-fit: cover;           /* always fills */
-      object-position: top center; /* show face */
+      object-fit: cover;
+      object-position: top center;
       display: block;
       transition: transform .5s ease;
     }
     .ceo-card:hover .ceo-img-area img { transform: scale(1.04); }
 
-    /* gradient overlay at bottom of image */
     .ceo-img-area::after {
       content: ''; pointer-events: none;
       position: absolute; bottom: 0; left: 0; right: 0; height: 55%;
@@ -329,7 +332,6 @@
 
     /* ═══════════════════════════════════════
        NEWS
-       ★ IMAGE AREA: FIXED HEIGHT, object-fit
     ═══════════════════════════════════════ */
     .news-section { background: var(--white); }
     .news-section .section-label { color: var(--green); }
@@ -354,14 +356,13 @@
 
     .news-card:hover { transform: translateY(-6px); box-shadow: 0 16px 50px rgba(0,164,79,.12); }
 
-    /* ── FIXED IMAGE AREA ── */
     .news-img {
-      height: 220px;               /* fixed height */
+      height: 220px;
       overflow: hidden; position: relative;
     }
     .news-img img {
       width: 100%; height: 100%;
-      object-fit: cover;           /* always fills */
+      object-fit: cover;
       display: block;
       transition: transform .45s ease;
     }
@@ -444,6 +445,7 @@
       border: 1px solid rgba(0,164,79,.18); border-radius: 6px;
       font-size: 14px; color: var(--navy); background: white;
       transition: border-color .25s,box-shadow .25s; outline: none; resize: none;
+      font-family: inherit;
     }
     .form-input:focus, .form-textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(0,164,79,.08); }
     .form-textarea { height: 120px; }
@@ -457,6 +459,7 @@
       text-transform: uppercase; cursor: pointer;
       display: flex; align-items: center; justify-content: center; gap: 8px;
       transition: all .3s ease; box-shadow: 0 4px 16px rgba(0,164,79,.3);
+      font-family: inherit;
     }
     .btn-submit:hover { background: linear-gradient(135deg,var(--orange),var(--orange2)); box-shadow: 0 6px 20px rgba(240,90,36,.35); }
 
@@ -477,130 +480,219 @@
     .scroll-top iconify-icon { color: white; font-size: 20px; }
 
     /* ═══════════════════════════════════════
-       RESPONSIVE
+       RESPONSIVE — TABLET (1024px)
     ═══════════════════════════════════════ */
     @media (max-width: 1024px) {
       .hstats-grid { grid-template-columns: repeat(2,1fr); }
-      .story-grid,.history-grid,.ceo-grid,.contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .story-grid, .history-grid, .ceo-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
       .history-left { position: static; }
       .news-grid { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 640px) {
-      section { padding: 64px 0; }
-      .container { padding: 0 20px; }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE — MOBILE (768px)
+    ═══════════════════════════════════════ */
+    @media (max-width: 768px) {
+
+      /* Container */
+      .container { padding: 0 18px; }
+
+      /* Section spacing */
+      section { padding: 60px 0; }
+
+      /* Section headings */
+      .section-heading { font-size: 26px; }
+      .section-body { font-size: 14px; line-height: 1.75; }
+
+      /* ── Banner ── */
+      .banner-section h1 {
+        font-size: 32px !important;
+        line-height: 1.15;
+      }
+      .banner-section .fs-16 {
+        font-size: 32px !important;
+      }
+      .banner-section .fs-5 {
+        font-size: 14px !important;
+      }
+      .banner-section .pb-8 {
+        padding-bottom: 2rem !important;
+      }
+      .banner-section .col-xl-4 {
+        margin-bottom: 1rem;
+      }
+      /* Fix banner arrow button overflow */
+      .banner-section .ps-7 {
+        padding-left: 1.5rem !important;
+      }
+
+      /* ── Stats Bar ── */
       .hstats-grid { grid-template-columns: 1fr 1fr; }
-      .news-grid { grid-template-columns: 1fr; }
+      .hstat-box { padding: 1.4rem 0.8rem; }
+      .hstat-num { font-size: 1.6rem; }
+      .hstat-lbl { font-size: .6rem; letter-spacing: .15em; }
+
+      /* ── Story Section ── */
+      .story-grid { grid-template-columns: 1fr; gap: 36px; }
+      .story-visual { padding: 20px; }
+      .story-badge { padding: 12px; gap: 12px; }
+      .story-badge-text strong { font-size: 13px; }
+      .story-badge-text span { font-size: 11px; }
+
+      /* ── History Section ── */
+      .history-grid { grid-template-columns: 1fr; gap: 36px; }
+      .history-left { position: static; top: 0; }
+      .history-since { font-size: 80px; }
+
+      /* Timeline mobile fix */
+      .timeline { margin-top: 24px; }
+      .timeline::before { left: 12px; }
+      .tl-item {
+        padding-left: 40px;
+        gap: 12px;
+        margin-bottom: 36px;
+        flex-direction: column;
+      }
+      .tl-dot {
+        left: 2px;
+        width: 20px; height: 20px;
+        top: 4px;
+      }
+      .tl-dot::after { width: 6px; height: 6px; }
+      .tl-year {
+        font-size: 28px;
+        min-width: auto;
+      }
+      .tl-text strong { font-size: 13px; }
+      .tl-text p { font-size: 12px; }
+      .tl-milestone { font-size: 9px; }
+
+      /* ── CEO Section ── */
+      .ceo-grid { grid-template-columns: 1fr; gap: 36px; }
+      .ceo-img-area { height: 280px; }
+      .ceo-card-body { padding: 1.2rem 1.4rem 1.2rem; }
+      .ceo-fact { font-size: 12px; padding: 8px 0; gap: 10px; }
+      .ceo-stats-row {
+        gap: 20px;
+        margin-top: 28px;
+        padding-top: 24px;
+        justify-content: space-between;
+      }
+      .ceo-stat-num { font-size: 32px; }
+      .ceo-stat-num span { font-size: 16px; }
+      .ceo-stat-lbl { font-size: 10px; }
+
+      /* ── News Section ── */
+      .news-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 32px;
+      }
+      .news-img { height: 200px; }
+      .news-body { padding: 18px; }
+      .news-title { font-size: 16px; }
+      .news-excerpt { font-size: 12px; margin-bottom: 14px; }
+      .news-more-btn { margin-top: 28px; }
+      .btn-outline { padding: 12px 28px; font-size: 12px; }
+
+      /* ── Contact Section ── */
+      .contact-grid { grid-template-columns: 1fr; gap: 36px; }
       .form-row { grid-template-columns: 1fr; }
-      .ceo-stats-row { gap: 20px; }
+      .contact-callout p { font-size: 16px; }
+      .contact-callout { padding: 18px; }
+      .form-input, .form-textarea { padding: 12px 14px; font-size: 14px; }
+      .btn-submit { padding: 14px; font-size: 13px; }
+
+      /* ── Scroll-to-top ── */
+      .scroll-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+      .scroll-top iconify-icon { font-size: 18px; }
+
+      /* ── Footer fixes ── */
+      footer .fs-5 { font-size: 14px !important; }
+      footer h2 { font-size: 24px !important; }
     }
-    /* ===============================
-MOBILE RESPONSIVE
-================================*/
 
-@media (max-width:768px){
+    /* ═══════════════════════════════════════
+       RESPONSIVE — SMALL MOBILE (480px)
+    ═══════════════════════════════════════ */
+    @media (max-width: 480px) {
 
-/* Container */
-.container{
-padding:0 18px;
-}
+      .container { padding: 0 14px; }
+      section { padding: 48px 0; }
 
-/* Banner Heading */
-.banner-section h1{
-font-size:38px;
-line-height:1.2;
-}
+      /* Banner */
+      .banner-section h1,
+      .banner-section .fs-16 {
+        font-size: 26px !important;
+        line-height: 1.15;
+      }
+      .banner-section .fs-5 {
+        font-size: 13px !important;
+      }
+      .banner-section .gap-3 {
+        gap: 0.5rem !important;
+      }
+      .banner-section .min-vh-100 {
+        min-height: 85vh;
+      }
 
-/* Stats Section */
-.hstats-grid{
-grid-template-columns:1fr 1fr;
-}
+      /* Section heading */
+      .section-heading { font-size: 22px; }
+      .section-body { font-size: 13px; }
+      .section-label { font-size: 10px; letter-spacing: 2px; }
 
-.hstat-box{
-padding:1.5rem 1rem;
-}
+      /* Stats */
+      .hstat-num { font-size: 1.35rem; }
+      .hstat-lbl { font-size: .55rem; }
+      .hstat-box { padding: 1.1rem 0.5rem; }
 
-/* Story Section */
-.story-grid{
-grid-template-columns:1fr;
-gap:40px;
-}
+      /* Story */
+      .story-visual { padding: 14px; gap: 10px; }
+      .story-badge { padding: 10px; gap: 10px; }
+      .story-badge iconify-icon { font-size: 20px; }
+      .story-badge-text strong { font-size: 12px; }
+      .story-badge-text span { font-size: 10px; }
 
-/* History Section */
-.history-grid{
-grid-template-columns:1fr;
-gap:40px;
-}
+      /* History */
+      .history-since { font-size: 60px; }
+      .tl-year { font-size: 24px; }
 
-.history-left{
-position:relative;
-top:0;
-}
+      /* CEO */
+      .ceo-img-area { height: 240px; }
+      .ceo-img-meta .name-line { font-size: 1.05rem; }
+      .ceo-role-badge { font-size: .58rem; padding: .2rem .65rem; }
+      .ceo-card-body { padding: 1rem 1.2rem; }
+      .ceo-stat-num { font-size: 28px; }
+      .ceo-stat-num span { font-size: 14px; }
 
-/* Timeline spacing */
-.tl-item{
-padding-left:50px;
-gap:20px;
-}
+      /* News */
+      .news-img { height: 180px; }
+      .news-body { padding: 14px; }
+      .news-title { font-size: 15px; }
 
-/* CEO Section */
-.ceo-grid{
-grid-template-columns:1fr;
-gap:40px;
-}
+      /* Contact */
+      .contact-callout p { font-size: 14px; }
+      .contact-item-text span { font-size: 13px; }
 
-.ceo-img-area{
-height:260px;
-}
+      /* Scroll top button */
+      .scroll-top { bottom: 16px; right: 16px; width: 38px; height: 38px; }
+    }
 
-/* News Section */
-.news-grid{
-grid-template-columns:1fr;
-gap:20px;
-}
-
-/* Contact Section */
-.contact-grid{
-grid-template-columns:1fr;
-gap:40px;
-}
-
-/* Contact Form */
-.form-row{
-grid-template-columns:1fr;
-}
-
-/* Section Padding */
-section{
-padding:60px 0;
-}
-
-/* Heading Size */
-.section-heading{
-font-size:28px;
-}
-
-}
-
-/* Small Mobile */
-@media (max-width:480px){
-
-.section-heading{
-font-size:24px;
-}
-
-.hstat-num{
-font-size:24px;
-}
-
-.banner-section h1{
-font-size:30px;
-}
-
-.ceo-img-area{
-height:220px;
-}
-
-}
+    /* ═══════════════════════════════════════
+       RESPONSIVE — VERY SMALL (360px)
+    ═══════════════════════════════════════ */
+    @media (max-width: 360px) {
+      .banner-section h1,
+      .banner-section .fs-16 {
+        font-size: 22px !important;
+      }
+      .section-heading { font-size: 20px; }
+      .hstat-num { font-size: 1.2rem; }
+      .hstat-box { padding: 1rem 0.4rem; }
+      .tl-year { font-size: 22px; }
+      .ceo-img-area { height: 200px; }
+      .ceo-stat-num { font-size: 24px; }
+    }
   </style>
 </head>
 
@@ -689,7 +781,7 @@ height:220px;
       </div>
     </section>
 
-    <!-- ─── STATS BAR (NEW) ─── -->
+    <!-- ─── STATS BAR ─── -->
     <div class="home-stats-bar">
       <div class="hstats-grid">
         <div class="hstat-box">
@@ -886,7 +978,6 @@ height:220px;
           <!-- CEO Card -->
           <div class="ceo-card">
             <div class="ceo-card-top">
-              <!-- ★ FIXED IMAGE AREA — 300px height ★ -->
               <div class="ceo-img-area">
                 <img src="../assets/images/Sheikh Jameel Altaf.png" alt="Mr. Jameel Altaf — CEO PDH Healthcare">
                 <div class="ceo-img-meta">
@@ -940,7 +1031,6 @@ height:220px;
         <div class="news-grid">
 
           <article class="news-card">
-            <!-- ★ FIXED NEWS IMAGE — 220px height ★ -->
             <div class="news-img"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="Healthcare Portfolio"></div>
             <div class="news-body">
               <div class="news-date">Dec 24, 2025</div>
@@ -1102,12 +1192,6 @@ height:220px;
       </div>
     </div>
   </footer>
-
-  <!--<div class="get-template hstack gap-2">
-    <button class="btn bg-primary p-2 round-52 rounded-circle hstack justify-content-center flex-shrink-0" id="scrollToTopBtn">
-      <iconify-icon icon="lucide:arrow-up" class="fs-7 text-dark"></iconify-icon>
-    </button>
-  </div>-->
 
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
