@@ -427,10 +427,10 @@
     ═══════════════════════════════════════ */
     @media (max-width: 767px) {
 
-      /* ── Banner Fix: heading + word-break ── */
+      /* ── Banner Fix: heading + word-break + oval balance ── */
       .banner-section h1,
       .banner-section .fs-16 {
-        font-size: 30px !important;
+        font-size: 36px !important;
         line-height: 1.15;
         word-break: normal;
         overflow-wrap: normal;
@@ -443,8 +443,18 @@
       .banner-section .pb-5 {
         padding-bottom: 1.5rem !important;
       }
+      /* Shrink the oval arrow pill on mobile */
       .banner-section .ps-7 {
-        padding-left: 1.5rem !important;
+        padding-left: 1rem !important;
+        transform: scale(0.72);
+        transform-origin: bottom right;
+      }
+      .banner-section .round-52 {
+        width: 36px !important;
+        height: 36px !important;
+      }
+      .banner-section .round-52 .fs-8 {
+        font-size: 1rem !important;
       }
       /* Make banner shorter on mobile */
       .banner-inner-section {
@@ -598,10 +608,13 @@
       /* Banner */
       .banner-section h1,
       .banner-section .fs-16 {
-        font-size: 24px !important;
+        font-size: 30px !important;
       }
       .banner-section .fs-5 {
         font-size: 13px !important;
+      }
+      .banner-section .ps-7 {
+        transform: scale(0.65);
       }
       .banner-inner-section {
         min-height: 50vh !important;
@@ -716,10 +729,13 @@
     @media (max-width: 360px) {
       .banner-section h1,
       .banner-section .fs-16 {
-        font-size: 20px !important;
+        font-size: 26px !important;
       }
       .banner-section .fs-5 {
         font-size: 12px !important;
+      }
+      .banner-section .ps-7 {
+        transform: scale(0.6);
       }
       .section-title {
         font-size: 1.25rem;
